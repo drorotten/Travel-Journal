@@ -1,0 +1,1489 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700&family=Frank+Ruhl+Libre:wght@500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<style>
+  body { margin:0; background:#eef0ef; -webkit-text-size-adjust:100%; }
+  a { color:#2c5c72; text-decoration:none; }
+  a:hover { color:#9c6b3c; }
+  input, textarea, select, button { font-family:inherit; }
+  textarea { resize:vertical; }
+  ::placeholder { color:#9aa7ae; }
+  @media (min-width: 860px) {
+    [data-mobile-nav] { display: none !important; }
+    [data-app-shell] { padding-bottom: 24px !important; }
+  }
+  @media print {
+    body { background:#fff; }
+    [data-noprint] { display:none !important; }
+    [data-book-page] { break-inside:avoid; page-break-inside:avoid; }
+  }
+</style>
+<script type="application/json" id="journal-snapshot">
+{"who":"תומי","days":[
+{"date":"2026-09-08","day_number":1,"title":"Helsingborg, Sweeden","destination":"Helsingborg, Sweeden","hotel_name":"דפנה","map_url":"https://maps.app.goo.gl/exAT1RUqfncynMek9","attractions":"נחיתה בקופנהגן, גשר Øresund, מפגש עם דפנה","lat":56.047,"lng":12.694,"located":true},
+{"date":"2026-09-09","day_number":2,"title":"Helsingborg, Sweeden","destination":"Helsingborg, Sweeden","hotel_name":"דפנה","attractions":"מפגש עם דופי ודפנה","lat":56.047,"lng":12.694,"located":true},
+{"date":"2026-09-10","day_number":3,"title":"Helsingborg, Sweeden","destination":"Helsingborg, Sweeden","hotel_name":"דפנה","attractions":"מפגש עם דופי ודפנה","lat":56.047,"lng":12.694,"located":true},
+{"date":"2026-09-11","day_number":4,"title":"OSLO","destination":"OSLO","hotel_name":"לירון ושרית","attractions":"רכבת (SJ או VY) מאלמו - אוסלו","lat":59.913,"lng":10.752,"located":true},
+{"date":"2026-09-12","day_number":5,"title":"OSLO","destination":"OSLO","hotel_name":"לירון ושרית","attractions":"פארק ויגלנד, מוזיאון מונק","lat":59.913,"lng":10.752,"located":true},
+{"date":"2026-09-13","day_number":6,"title":"OSLO","destination":"OSLO","hotel_name":"לירון ושרית","lat":59.913,"lng":10.752,"located":true},
+{"date":"2026-09-14","day_number":7,"title":"Bergen","destination":"Bergen","lat":60.391,"lng":5.322,"located":true},
+{"date":"2026-09-15","day_number":8,"title":"Balestrand","destination":"Balestrand","lat":61.2,"lng":6.535,"located":true},
+{"date":"2026-09-16","day_number":9,"title":"LOEN","destination":"LOEN","hotel_name":"Hotel Alexandra Loen","map_url":"https://maps.app.goo.gl/N1FMMWbAFpiuEKBj7","attractions":"דרך נופית Gaularfjellet","lat":61.874,"lng":6.855,"located":true},
+{"date":"2026-09-17","day_number":10,"title":"LOEN","destination":"LOEN","hotel_name":"Hotel Alexandra Loen","lat":61.874,"lng":6.855,"located":true},
+{"date":"2026-09-18","day_number":11,"title":"Geiranger","destination":"Geiranger","lat":62.1,"lng":7.207,"located":true},
+{"date":"2026-09-19","day_number":12,"title":"Geiranger","destination":"Geiranger","lat":62.1,"lng":7.207,"located":true},
+{"date":"2026-09-20","day_number":13,"title":"מגיירנגר לאלסונד — דרך הנשרים ודרך הטרולים","destination":"Ålesund","hotel_name":"Thon Hotel Ålesund","map_url":"https://maps.app.goo.gl/g2oDLhG7gg815eRq8","attractions":"עלייה בדרך הנשרים\nמעבורת Eidsdal ל‑Linge","lat":62.472,"lng":6.155,"located":true},
+{"date":"2026-09-21","day_number":14,"title":"Ålesund","destination":"Ålesund","hotel_name":"Thon Hotel Ålesund","attractions":"עלייה לתצפית הר Aksla\nביקור בפארק האוקיינוס","lat":62.472,"lng":6.155,"located":true},
+{"date":"2026-09-22","day_number":15,"title":"Aurland, Flåm","destination":"Aurland, Flåm","hotel_name":"Lunde Camping","attractions":"מוזיאון הקרחונים בפיירלנד\nקרחון Bøyabreen","lat":60.863,"lng":7.113,"located":true},
+{"date":"2026-09-23","day_number":16,"title":"Aurland, Flåm","destination":"Aurland, Flåm","hotel_name":"Lunde Camping","map_url":"https://maps.app.goo.gl/iPGsuvTFA5axawj48","attractions":"עלייה לתצפית Stegastein","lat":60.863,"lng":7.113,"located":true},
+{"date":"2026-09-24","day_number":17,"title":"Aurland, Flåm","destination":"Aurland, Flåm","hotel_name":"Lunde Camping","attractions":"רכבת Flåmsbana\nסירת ריב ב‑Nærøyfjord","lat":60.863,"lng":7.113,"located":true},
+{"date":"2026-09-25","day_number":18,"title":"Eidfjord","destination":"Eidfjord","hotel_name":"Vøringfoss Hotel","map_url":"https://maps.app.goo.gl/c7hamMBqmh7FpnUU9","attractions":"נסיעה דרומה דרך Voss\nחציית Hardanger Bridge\nמפל Vøringsfossen","lat":60.468,"lng":7.07,"located":true},
+{"date":"2026-09-26","day_number":19,"title":"Bergen","destination":"Bergen","lat":60.391,"lng":5.322,"located":true},
+{"date":"2026-09-27","day_number":20,"title":"Copenhagen, Denmark","destination":"Copenhagen","lat":55.676,"lng":12.568,"located":true},
+{"date":"2026-09-28","day_number":21,"title":"Copenhagen, Denmark","destination":"Copenhagen","lat":55.676,"lng":12.568,"located":true},
+{"date":"2026-09-29","day_number":22,"title":"ורשה, פולין","destination":"Warsaw","hotel_name":"בטיסה","lat":52.23,"lng":21.012,"located":true},
+{"date":"2026-09-30","day_number":23,"title":"תל אביב","destination":"Tel Aviv","hotel_name":"בית","attractions":"טיסה ורשה–תל אביב\nחזרה הביתה לפנות בוקר","lat":32.085,"lng":34.782,"located":true}
+]}
+</script>
+<template id="__bundler_thumbnail">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" fill="#1d3a49"/><g fill="none" stroke="#e7d3b3" stroke-width="4" stroke-linecap="round"><path d="M30 70 L44 40 L56 58 L70 30"/></g><circle cx="70" cy="30" r="5" fill="#9c6b3c"/></svg>
+</template>
+</helmet>
+<div dir="rtl" lang="he" style="font-family:Heebo, 'Segoe UI', sans-serif; color:#17242e; background:#eef0ef; min-height:100vh;">
+
+  <sc-if value="{{ locked }}" hint-placeholder-val="{{ false }}">
+    <div style="min-height:100vh; display:grid; place-items:center; padding:24px; background:linear-gradient(#1d3a49,#0f1f28);">
+      <div style="width:100%; max-width:420px; background:#f7f7f5; border-radius:20px; padding:32px 28px; box-shadow:0 30px 60px rgba(0,0,0,.35);">
+        <div style="font-family:'Frank Ruhl Libre',serif; font-size:30px; font-weight:700; line-height:1.2;">יומן המסע בנורווגיה</div>
+        <div style="color:#6b7a85; font-size:15px; margin-top:8px; line-height:1.6;">כניסה משותפת לשני בני הזוג — מהנייד או מהמחשב. אותו קוד, אותו יומן, סנכרון מיידי.</div>
+        <div style="display:grid; gap:14px; margin-top:26px;">
+          <label style="display:grid; gap:6px; font-size:13px; color:#6b7a85;">מי כותב עכשיו?
+            <input value="{{ who }}" onChange="{{ onWho }}" placeholder="השם שלך" style="border:1px solid #d8dad6; border-radius:12px; padding:13px 14px; font-size:16px; background:#fff; outline:none;">
+          </label>
+          <label style="display:grid; gap:6px; font-size:13px; color:#6b7a85;">קוד גישה משותף
+            <input value="{{ pinInput }}" onChange="{{ onPin }}" inputMode="numeric" placeholder="4 ספרות" style="border:1px solid #d8dad6; border-radius:12px; padding:13px 14px; font-size:20px; letter-spacing:6px; background:#fff; outline:none;">
+          </label>
+          <sc-if value="{{ pinError }}" hint-placeholder-val="{{ false }}">
+            <div style="color:#a33b2f; font-size:13px;">קוד שגוי — נסו שוב</div>
+          </sc-if>
+          <button onClick="{{ onUnlock }}" style="border:0; background:#2c5c72; color:#fff; padding:15px; border-radius:12px; font-size:16px; font-weight:500; cursor:pointer;" style-hover="background:#1d3a49;">כניסה ליומן</button>
+          <button onClick="{{ onGuest }}" style="border:0; background:transparent; color:#6b7a85; padding:6px; font-size:14px; cursor:pointer; text-decoration:underline;">לצפייה בלבד (משפחה וחברים)</button>
+        </div>
+      </div>
+    </div>
+  </sc-if>
+
+  <sc-if value="{{ unlocked }}" hint-placeholder-val="{{ true }}">
+    <div data-app-shell style="padding-bottom:96px;">
+
+      <header data-noprint style="position:sticky; top:0; z-index:600; background:rgba(247,247,245,.94); backdrop-filter:blur(10px); border-bottom:1px solid #dfe1dd;">
+        <div style="max-width:1360px; margin:0 auto; padding:12px 18px; display:flex; align-items:center; gap:16px; flex-wrap:wrap;">
+          <div style="display:flex; align-items:baseline; gap:10px; margin-inline-end:auto;">
+            <span style="font-family:'Frank Ruhl Libre',serif; font-size:22px; font-weight:700;">{{ tripTitle }}</span>
+            <span style="font-size:13px; color:#6b7a85;">{{ tripMeta }}</span>
+          </div>
+          <div style="display:flex; align-items:center; gap:8px; font-size:13px; color:#3f7a5a; background:#e6f0e9; border-radius:999px; padding:6px 12px;">
+            <span style="width:8px; height:8px; border-radius:50%; background:#3f7a5a; display:inline-block;"></span>
+            <span>{{ syncLabel }}</span>
+          </div>
+          <nav style="display:flex; gap:4px; background:#e7e9e6; padding:4px; border-radius:12px;">
+            <sc-for list="{{ tabs }}" as="t" hint-placeholder-count="4">
+              <button onClick="{{ t.go }}" style="{{ t.style }}">{{ t.label }}</button>
+            </sc-for>
+          </nav>
+        </div>
+      </header>
+
+      <main style="max-width:1360px; margin:0 auto; padding:20px 18px 0;">
+
+        <sc-if value="{{ isDash }}" hint-placeholder-val="{{ true }}">
+          <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(340px,1fr)); gap:18px; align-items:start;">
+            <section style="background:#f7f7f5; border:1px solid #e2e4e0; border-radius:18px; overflow:hidden; position:sticky; top:76px;">
+              <div style="padding:14px 18px; display:flex; align-items:center; justify-content:space-between; border-bottom:1px solid #e6e8e4;">
+                <span style="font-weight:500;">מפת המסלול</span>
+                <span style="font-size:13px; color:#6b7a85;">{{ mapNote }}</span>
+              </div>
+              <div ref="{{ mapRef }}" style="height:min(58vh,520px); width:100%; background:#dfe3e2;"></div>
+              <div style="padding:10px 18px; display:flex; gap:10px; align-items:center; flex-wrap:wrap; border-top:1px solid #e6e8e4;">
+                <span style="font-size:13px; color:#6b7a85;">לחצו על סמן כדי לפתוח את היום · סמן מאוחד = כמה ימים באותו מקום</span>
+                <span style="display:flex; gap:8px; margin-inline-start:auto;">
+                  <button onClick="{{ onFitRoute }}" style="border:1px solid #d8dad6; background:transparent; color:#2c5c72; border-radius:9px; padding:7px 12px; font-size:13px; cursor:pointer;">התמקד במסלול</button>
+                  <button onClick="{{ onFitAll }}" style="border:1px solid #d8dad6; background:transparent; color:#2c5c72; border-radius:9px; padding:7px 12px; font-size:13px; cursor:pointer;">הצג את כל היעדים</button>
+                </span>
+              </div>
+            </section>
+
+            <section style="display:grid; gap:14px;">
+              <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(140px,1fr)); gap:10px;">
+                <div style="background:#f7f7f5; border:1px solid #e2e4e0; border-radius:14px; padding:14px 16px;">
+                  <div style="font-size:12px; color:#6b7a85;">מרחקים</div>
+                  <div style="font-family:'Frank Ruhl Libre',serif; font-size:26px; font-weight:700;">{{ totalKm }} ק״מ</div>
+                </div>
+                <div style="background:#f7f7f5; border:1px solid #e2e4e0; border-radius:14px; padding:14px 16px;">
+                  <div style="font-size:12px; color:#6b7a85;">זמני נסיעה</div>
+                  <div style="font-family:'Frank Ruhl Libre',serif; font-size:26px; font-weight:700;">{{ totalDrive }}</div>
+                </div>
+                <div style="background:#f7f7f5; border:1px solid #e2e4e0; border-radius:14px; padding:14px 16px;">
+                  <div style="font-size:12px; color:#6b7a85;">מעבורות</div>
+                  <div style="font-family:'Frank Ruhl Libre',serif; font-size:26px; font-weight:700;">{{ ferryCount }}</div>
+                </div>
+              </div>
+
+              <div style="display:flex; align-items:center; justify-content:space-between; padding-top:4px;">
+                <span style="font-family:'Frank Ruhl Libre',serif; font-size:20px; font-weight:700;">ימי המסע</span>
+                <button onClick="{{ onAddDay }}" style="border:1px dashed #b9c2c6; background:transparent; color:#2c5c72; border-radius:10px; padding:8px 14px; font-size:14px; cursor:pointer;" style-hover="background:#e7edf0;">+ הוספת יום</button>
+              </div>
+
+              <sc-for list="{{ daysUI }}" as="d" hint-placeholder-count="4">
+                <article onClick="{{ d.open }}" style="{{ d.cardStyle }}">
+                  <div style="display:flex; align-items:baseline; gap:10px; flex-wrap:wrap;">
+                    <span style="background:#2c5c72; color:#fff; font-size:12px; padding:3px 9px; border-radius:999px;">יום {{ d.day_number }}</span>
+                    <span style="font-family:'Frank Ruhl Libre',serif; font-size:19px; font-weight:700; color:#2c5c72;">{{ d.title }}</span>
+                    <span style="font-size:13px; color:#6b7a85; margin-inline-start:auto;">{{ d.dateLabel }}</span>
+                  </div>
+                  <div style="font-size:14px; color:#43535e; line-height:1.7; margin-top:8px; display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden;">{{ d.preview }}</div>
+                  <div style="display:flex; gap:8px; flex-wrap:wrap; margin-top:12px; font-size:12.5px; color:#4b5b66;">
+                    <sc-if value="{{ d.hasDistance }}" hint-placeholder-val="{{ true }}">
+                      <span style="background:#eceeea; border-radius:8px; padding:4px 9px;">{{ d.distanceLabel }}</span>
+                    </sc-if>
+                    <sc-if value="{{ d.hasDrive }}" hint-placeholder-val="{{ true }}">
+                      <span style="background:#eceeea; border-radius:8px; padding:4px 9px;">{{ d.drive_time }}</span>
+                    </sc-if>
+                    <sc-if value="{{ d.hasWeather }}" hint-placeholder-val="{{ true }}">
+                      <span style="background:#eceeea; border-radius:8px; padding:4px 9px;">{{ d.weather_description }}</span>
+                    </sc-if>
+                    <sc-if value="{{ d.hasFerry }}" hint-placeholder-val="{{ true }}">
+                      <span style="background:#e2ecf1; color:#2c5c72; border-radius:8px; padding:4px 9px;">מעבורת</span>
+                    </sc-if>
+                    <sc-if value="{{ d.hotel_name }}" hint-placeholder-val="{{ false }}">
+                      <span style="background:#eef3f6; color:#2c5c72; border-radius:8px; padding:4px 9px;">{{ d.hotel_name }}</span>
+                    </sc-if>
+                    <sc-if value="{{ d.hasMedia }}" hint-placeholder-val="{{ true }}">
+                      <span style="background:#f2ead9; color:#8a5c2e; border-radius:8px; padding:4px 9px;">{{ d.mediaCount }} מדיה</span>
+                    </sc-if>
+                  </div>
+                </article>
+              </sc-for>
+            </section>
+          </div>
+        </sc-if>
+
+        <sc-if value="{{ isEditor }}" hint-placeholder-val="{{ false }}">
+          <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(320px,1fr)); gap:18px; align-items:start;">
+            <section style="background:#f7f7f5; border:1px solid #e2e4e0; border-radius:18px; padding:20px;">
+              <div style="display:flex; align-items:center; gap:10px; flex-wrap:wrap; margin-bottom:18px;">
+                <select value="{{ cur.id }}" onChange="{{ onSelectDay }}" style="border:1px solid #d8dad6; border-radius:10px; padding:9px 12px; font-size:15px; background:#fff;">
+                  <sc-for list="{{ dayOptions }}" as="o" hint-placeholder-count="4">
+                    <option value="{{ o.id }}">{{ o.label }}</option>
+                  </sc-for>
+                </select>
+                <span style="font-size:13px; color:#6b7a85; margin-inline-start:auto;">{{ editedLabel }}</span>
+              </div>
+
+              <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:12px;">
+                <label style="display:grid; gap:5px; font-size:13px; color:#6b7a85;">מספר יום
+                  <input value="{{ cur.day_number }}" onChange="{{ h.day_number }}" inputMode="numeric" style="border:1px solid #d8dad6; border-radius:10px; padding:12px; font-size:16px; background:#fff; outline:none;">
+                </label>
+                <label style="display:grid; gap:5px; font-size:13px; color:#6b7a85;">תאריך
+                  <input type="date" value="{{ cur.date }}" onChange="{{ h.date }}" style="border:1px solid #d8dad6; border-radius:10px; padding:12px; font-size:16px; background:#fff; outline:none;">
+                </label>
+                <label style="display:grid; gap:5px; font-size:13px; color:#6b7a85; grid-column:1 / -1;">כותרת היום
+                  <input value="{{ cur.title }}" onChange="{{ h.title }}" placeholder="מאלסונד לגיירנגר" style="border:1px solid #d8dad6; border-radius:10px; padding:12px; font-size:16px; background:#fff; outline:none;">
+                </label>
+              </div>
+
+              <div style="font-size:13px; color:#2c5c72; letter-spacing:.08em; margin:22px 0 10px; font-weight:500;">תכנית היום</div>
+              <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:12px;">
+                <label style="display:grid; gap:5px; font-size:13px; color:#2c5c72;">יעד
+                  <input value="{{ cur.destination }}" onChange="{{ h.destination }}" placeholder="גיירנגר" style="border:1px solid #d8dad6; border-radius:10px; padding:12px; font-size:16px; background:#fff; outline:none;">
+                </label>
+                <label style="display:grid; gap:5px; font-size:13px; color:#2c5c72;">מלון
+                  <input value="{{ cur.hotel_name }}" onChange="{{ h.hotel_name }}" placeholder="Hotel Union Geiranger" style="border:1px solid #d8dad6; border-radius:10px; padding:12px; font-size:16px; background:#fff; outline:none;">
+                </label>
+                <div style="display:grid; gap:5px; font-size:13px; color:#2c5c72; grid-column:1 / -1;">
+                  <span>קישור למפת גוגל</span>
+                  <div style="display:flex; gap:8px; align-items:stretch; flex-wrap:wrap;">
+                    <input value="{{ cur.map_url }}" onChange="{{ h.map_url }}" onFocus="{{ onSelectRoute }}" placeholder="https://maps.app.goo.gl/..." dir="ltr" style="flex:1; min-width:180px; border:1px solid #d8dad6; border-radius:10px; padding:12px; font-size:15px; background:#fff; outline:none;">
+                    <button onClick="{{ onCopyRoute }}" style="border:1px solid #d8dad6; background:#eef3f6; color:#2c5c72; border-radius:10px; padding:12px 16px; font-size:14.5px; cursor:pointer; white-space:nowrap;" style-hover="background:#e2ecf1;">{{ copyLabel }}</button>
+                  </div>
+                  <span style="font-size:12px; color:#9aa7ae;">{{ routeNote }}</span>
+                </div>
+                <div style="grid-column:1 / -1; display:flex; gap:10px; align-items:center; flex-wrap:wrap; font-size:13px; color:#6b7a85;">
+                  <span>{{ locStatus }}</span>
+                  <button onClick="{{ onRelocate }}" style="border:1px solid #d8dad6; background:transparent; color:#2c5c72; border-radius:9px; padding:8px 12px; font-size:13.5px; cursor:pointer;">אתר את היעד מחדש</button>
+                </div>
+                <label style="display:grid; gap:5px; font-size:13px; color:#2c5c72; grid-column:1 / -1;">אטרקציות מתוכננות
+                  <textarea value="{{ cur.attractions }}" onChange="{{ h.attractions }}" rows="3" placeholder="שורה לכל אטרקציה" style="border:1px solid #d8dad6; border-radius:10px; padding:12px; font-size:16px; background:#fff; outline:none; line-height:1.7;"></textarea>
+                </label>
+              </div>
+
+              <div style="font-size:13px; color:#2c5c72; letter-spacing:.08em; margin:22px 0 10px; font-weight:500;">נתוני נסיעה</div>
+              <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:12px;">
+                <label style="display:grid; gap:5px; font-size:13px; color:#6b7a85;">מרחקים בק״מ
+                  <input value="{{ cur.distance_km }}" onChange="{{ h.distance_km }}" inputMode="numeric" style="border:1px solid #d8dad6; border-radius:10px; padding:12px; font-size:16px; background:#fff; outline:none;">
+                </label>
+                <label style="display:grid; gap:5px; font-size:13px; color:#6b7a85;">זמני נסיעה
+                  <input value="{{ cur.drive_time }}" onChange="{{ h.drive_time }}" placeholder="3 שעות 40 דקות" style="border:1px solid #d8dad6; border-radius:10px; padding:12px; font-size:16px; background:#fff; outline:none;">
+                </label>
+                <label style="display:grid; gap:5px; font-size:13px; color:#6b7a85;">שעת זריחה
+                  <input value="{{ sunriseVal }}" onChange="{{ h.sunrise_time }}" dir="ltr" style="border:1px solid #d8dad6; border-radius:10px; padding:12px; font-size:16px; background:#fff; outline:none;">
+                </label>
+                <label style="display:grid; gap:5px; font-size:13px; color:#6b7a85;">שעת שקיעה
+                  <input value="{{ sunsetVal }}" onChange="{{ h.sunset_time }}" dir="ltr" style="border:1px solid #d8dad6; border-radius:10px; padding:12px; font-size:16px; background:#fff; outline:none;">
+                </label>
+                <div style="grid-column:1 / -1; display:flex; gap:10px; align-items:center; flex-wrap:wrap; font-size:12.5px; color:#9aa7ae;">
+                  <span>{{ sunNote }}</span>
+                  <button onClick="{{ onRecalcSun }}" style="border:1px solid #d8dad6; background:transparent; color:#2c5c72; border-radius:9px; padding:7px 11px; font-size:13px; cursor:pointer;">חישוב לפי תאריך ומיקום</button>
+                </div>
+                <label style="display:grid; gap:5px; font-size:13px; color:#6b7a85; grid-column:1 / -1;">מזג אוויר
+                  <input value="{{ cur.weather_description }}" onChange="{{ h.weather_description }}" placeholder="12°, גשם קל, ערפל מעל הפיורד" style="border:1px solid #d8dad6; border-radius:10px; padding:12px; font-size:16px; background:#fff; outline:none;">
+                </label>
+                <label style="display:grid; gap:5px; font-size:13px; color:#6b7a85; grid-column:1 / -1;">מעבורות
+                  <textarea value="{{ cur.ferries }}" onChange="{{ h.ferries }}" rows="2" placeholder="הלסילט–גיירנגר 11:30 · 60 דק׳ · 480 NOK" style="border:1px solid #d8dad6; border-radius:10px; padding:12px; font-size:16px; background:#fff; outline:none; line-height:1.6;"></textarea>
+                </label>
+              </div>
+            </section>
+
+            <section style="display:grid; gap:14px;">
+              <sc-for list="{{ textFields }}" as="f" hint-placeholder-count="4">
+                <label style="display:grid; gap:6px; background:#f7f7f5; border:1px solid #e2e4e0; border-radius:16px; padding:16px 18px;">
+                  <span style="font-family:'Frank Ruhl Libre',serif; font-size:17px; font-weight:700; color:#2c5c72;">{{ f.label }}</span>
+                  <span style="font-size:12.5px; color:#9aa7ae;">{{ f.hint }}</span>
+                  <textarea value="{{ f.value }}" onChange="{{ f.onChange }}" rows="4" style="border:1px solid #d8dad6; border-radius:10px; padding:12px; font-size:16px; background:#fff; outline:none; line-height:1.8; margin-top:6px;"></textarea>
+                </label>
+              </sc-for>
+
+              <div style="background:#f7f7f5; border:1px solid #e2e4e0; border-radius:16px; padding:16px 18px;">
+                <div style="font-family:'Frank Ruhl Libre',serif; font-size:17px; font-weight:700;">תמונות וסרטונים</div>
+                <div style="font-size:12.5px; color:#9aa7ae; margin-top:4px;">צילום ישיר מהנייד או העלאה מהגלריה</div>
+                <div style="display:grid; grid-template-columns:repeat(auto-fill,minmax(92px,1fr)); gap:10px; margin-top:12px;">
+                  <sc-for list="{{ curMedia }}" as="m">
+                    <div style="position:relative; aspect-ratio:1; border-radius:12px; overflow:hidden; background:#dfe3e2;">
+                      <div role="img" aria-label="{{ m.name }}" style="width:100%; height:100%; background-image:url({{ m.url }}); background-size:cover; background-position:center;"></div>
+                      <button onClick="{{ m.remove }}" style="position:absolute; top:5px; inset-inline-start:5px; border:0; background:rgba(15,31,40,.75); color:#fff; width:24px; height:24px; border-radius:50%; cursor:pointer; font-size:14px; line-height:1;">×</button>
+                    </div>
+                  </sc-for>
+                  <label style="aspect-ratio:1; border:1px dashed #b9c2c6; border-radius:12px; display:grid; place-items:center; text-align:center; font-size:12px; color:#6b7a85; cursor:pointer; padding:8px;">
+                    <span>+ הוספת<br>מדיה</span>
+                    <input type="file" accept="image/*,video/*" multiple onChange="{{ onUpload }}" style="display:none;">
+                  </label>
+                </div>
+              </div>
+
+              <div style="display:flex; gap:10px; flex-wrap:wrap;">
+                <button onClick="{{ onSave }}" style="border:0; background:#2c5c72; color:#fff; padding:14px 22px; border-radius:12px; font-size:16px; font-weight:500; cursor:pointer; flex:1;" style-hover="background:#1d3a49;">שמירה וסנכרון</button>
+                <button onClick="{{ onDeleteDay }}" style="border:1px solid #e0d0cc; background:transparent; color:#a33b2f; padding:14px 18px; border-radius:12px; font-size:15px; cursor:pointer;" style-hover="background:#f6eae8;">מחיקת היום</button>
+              </div>
+            </section>
+          </div>
+        </sc-if>
+
+        <sc-if value="{{ isPublic }}" hint-placeholder-val="{{ false }}">
+          <div style="max-width:760px; margin:0 auto;">
+            <div data-noprint style="background:#f7f7f5; border:1px solid #e2e4e0; border-radius:16px; padding:16px 18px; display:flex; gap:12px; align-items:center; flex-wrap:wrap;">
+              <div style="min-width:200px; flex:1;">
+                <div style="font-weight:500; color:#2c5c72;">קישור צפייה למשפחה ולחברים</div>
+                <div style="font-size:13px; color:#6b7a85; margin-top:2px;">נפתח ישר במצב קריאה בלבד, בלי קוד גישה</div>
+                <div style="display:flex; gap:8px; align-items:stretch; flex-wrap:wrap; margin-top:10px;">
+                  <input value="{{ shareUrl }}" readOnly dir="ltr" onFocus="{{ onSelectRoute }}" style="flex:1; min-width:200px; border:1px solid #d8dad6; border-radius:10px; padding:11px 12px; font-size:13px; background:#fff; color:#4b5b66;">
+                  <button onClick="{{ onCopyShare }}" style="border:1px solid #d8dad6; background:#eef3f6; color:#2c5c72; border-radius:10px; padding:11px 16px; font-size:14px; cursor:pointer; white-space:nowrap;" style-hover="background:#e2ecf1;">{{ shareCopyLabel }}</button>
+                </div>
+                <div style="font-size:12px; color:#9aa7ae; margin-top:8px; line-height:1.7;">הכתובת הזו פתוחה רק למי שמחובר לפרויקט. לשיתוף עם המשפחה יש שתי דרכים: לשלוח את קובץ היומן העצמאי (צילום מצב של התוכן, נפתח בכל דפדפן ללא הרשאות), או לחבר את היומן ל‑Supabase ולהעלות אותו לכתובת קבועה — ואז העדכונים מהדרך יופיעו בזמן אמת.</div>
+              </div>
+            </div>
+
+            <div style="text-align:center; padding:34px 0 22px;">
+              <div style="font-family:'Frank Ruhl Libre',serif; font-size:34px; font-weight:700;">{{ tripTitle }}</div>
+              <div style="color:#6b7a85; margin-top:6px;">{{ tripMeta }} · עדכון אחרון {{ lastUpdate }}</div>
+            </div>
+
+            <sc-for list="{{ daysUI }}" as="d" hint-placeholder-count="3">
+              <article style="background:#f7f7f5; border:1px solid #e2e4e0; border-radius:18px; padding:22px; margin-bottom:16px;">
+                <div style="display:flex; align-items:baseline; gap:10px; flex-wrap:wrap;">
+                  <span style="background:#2c5c72; color:#fff; font-size:12px; padding:3px 9px; border-radius:999px;">יום {{ d.day_number }}</span>
+                  <span style="font-family:'Frank Ruhl Libre',serif; font-size:22px; font-weight:700; color:#2c5c72;">{{ d.title }}</span>
+                  <span style="font-size:13px; color:#6b7a85; margin-inline-start:auto;">{{ d.dateLabel }}</span>
+                </div>
+                <div style="display:flex; gap:8px; flex-wrap:wrap; margin-top:12px; font-size:12.5px; color:#4b5b66;">
+                  <sc-if value="{{ d.hasDistance }}" hint-placeholder-val="{{ true }}">
+                    <span style="background:#eceeea; border-radius:8px; padding:4px 9px;">{{ d.distanceLabel }}</span>
+                  </sc-if>
+                  <sc-if value="{{ d.hasDrive }}" hint-placeholder-val="{{ true }}">
+                    <span style="background:#eceeea; border-radius:8px; padding:4px 9px;">{{ d.drive_time }}</span>
+                  </sc-if>
+                  <sc-if value="{{ d.hasWeather }}" hint-placeholder-val="{{ true }}">
+                    <span style="background:#eceeea; border-radius:8px; padding:4px 9px;">{{ d.weather_description }}</span>
+                  </sc-if>
+                  <span style="background:#eceeea; border-radius:8px; padding:4px 9px;">זריחה {{ d.sunrise_time }} · שקיעה {{ d.sunset_time }}</span>
+                </div>
+                <sc-if value="{{ d.hasMedia }}" hint-placeholder-val="{{ false }}">
+                  <div style="display:grid; grid-template-columns:repeat(auto-fill,minmax(120px,1fr)); gap:8px; margin-top:14px;">
+                    <sc-for list="{{ d.media }}" as="m">
+                      <div role="img" aria-label="{{ m.name }}" style="width:100%; aspect-ratio:4/3; border-radius:10px; background-image:url({{ m.url }}); background-size:cover; background-position:center; background-color:#dfe3e2;"></div>
+                    </sc-for>
+                  </div>
+                </sc-if>
+                <sc-if value="{{ d.hasPlan }}" hint-placeholder-val="{{ true }}">
+                  <div style="margin-top:14px; background:#eef3f6; border-radius:12px; padding:12px 14px; font-size:14px; line-height:1.7;">
+                    <div style="color:#2c5c72; font-weight:500;">{{ d.planTitle }}</div>
+                    <div style="color:#43535e; white-space:pre-line;">{{ d.attractionsLabel }}</div>
+                    <sc-if value="{{ d.dayRoute }}" hint-placeholder-val="{{ false }}">
+                      <a href="{{ d.dayRoute }}" target="_blank" rel="noreferrer" onClick="{{ d.copyRoute }}" style="font-size:13.5px;">{{ d.routeLinkLabel }}</a>
+                    </sc-if>
+                  </div>
+                </sc-if>
+                <sc-for list="{{ d.sections }}" as="s" hint-placeholder-count="3">
+                  <div style="margin-top:16px;">
+                    <div style="font-size:13px; color:#2c5c72; font-weight:500;">{{ s.label }}</div>
+                    <p style="margin:4px 0 0; font-size:16px; line-height:1.85; color:#25333d; text-wrap:pretty; white-space:pre-line;">{{ s.value }}</p>
+                  </div>
+                </sc-for>
+              </article>
+            </sc-for>
+          </div>
+        </sc-if>
+
+        <sc-if value="{{ isBook }}" hint-placeholder-val="{{ false }}">
+          <div style="max-width:820px; margin:0 auto;">
+            <div data-noprint style="display:flex; gap:12px; align-items:center; flex-wrap:wrap; margin-bottom:18px;">
+              <div style="font-size:14px; color:#6b7a85;">ספר המסע מרכז את כל הימים, הטקסטים, מזג האוויר, המעבורות והמדיה בפריסת דפוס אחת.</div>
+              <button onClick="{{ onPrint }}" style="margin-inline-start:auto; border:0; background:#2c5c72; color:#fff; padding:12px 20px; border-radius:12px; font-size:15px; cursor:pointer;" style-hover="background:#1d3a49;">הדפסה / שמירה כ‑PDF</button>
+            </div>
+
+            <div style="background:#fff; border:1px solid #e2e4e0; border-radius:6px; padding:clamp(28px,6vw,64px); box-shadow:0 20px 40px rgba(23,36,46,.07);">
+              <div data-book-page style="text-align:center; padding:40px 0 56px; border-bottom:1px solid #e6e8e4;">
+                <div style="font-size:13px; color:#9aa7ae; letter-spacing:.24em;">יומן מסע</div>
+                <div style="font-family:'Frank Ruhl Libre',serif; font-size:clamp(34px,6vw,52px); font-weight:700; margin-top:14px; line-height:1.2;">{{ tripTitle }}</div>
+                <div style="color:#6b7a85; margin-top:12px; font-size:17px;">{{ tripMeta }} · {{ totalKm }} ק״מ · {{ ferryCount }} מעבורות</div>
+                <div style="color:#9aa7ae; margin-top:6px; font-size:15px;">{{ authorsLabel }}</div>
+              </div>
+
+              <sc-for list="{{ daysUI }}" as="d" hint-placeholder-count="3">
+                <section data-book-page style="padding:44px 0; border-bottom:1px solid #eceeea;">
+                  <div style="display:flex; align-items:baseline; gap:12px; flex-wrap:wrap;">
+                    <span style="font-family:'Frank Ruhl Libre',serif; font-size:15px; color:#9c6b3c;">יום {{ d.day_number }}</span>
+                    <span style="font-size:14px; color:#9aa7ae;">{{ d.dateLabel }}</span>
+                  </div>
+                  <h2 style="font-family:'Frank Ruhl Libre',serif; font-size:clamp(26px,4vw,34px); font-weight:700; margin:6px 0 0; line-height:1.25; color:#2c5c72;">{{ d.title }}</h2>
+                  <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(120px,1fr)); gap:10px; margin-top:18px; padding:14px 0; border-block:1px solid #eceeea; font-size:14px;">
+                    <div><span style="color:#9aa7ae;">מרחק</span><br>{{ d.distance_km }} ק״מ</div>
+                    <div><span style="color:#9aa7ae;">נסיעה</span><br>{{ d.drive_time }}</div>
+                    <div><span style="color:#9aa7ae;">מזג אוויר</span><br>{{ d.weather_description }}</div>
+                    <div><span style="color:#9aa7ae;">זריחה/שקיעה</span><br>{{ d.sunrise_time }} · {{ d.sunset_time }}</div>
+                    <div><span style="color:#9aa7ae;">מעבורות</span><br>{{ d.ferriesLabel }}</div>
+                    <div><span style="color:#9aa7ae;">מלון</span><br>{{ d.hotelLabel }}</div>
+                  </div>
+                  <sc-if value="{{ d.hasPlan }}" hint-placeholder-val="{{ true }}">
+                    <div style="margin-top:20px;">
+                      <div style="font-family:'Frank Ruhl Libre',serif; font-size:18px; font-weight:700; color:#2c5c72;">אטרקציות ותכנית היום</div>
+                      <p style="margin:6px 0 0; font-size:16.5px; line-height:1.9; color:#25333d; white-space:pre-line;">{{ d.attractionsLabel }}</p>
+                    </div>
+                  </sc-if>
+                  <sc-for list="{{ d.sections }}" as="s" hint-placeholder-count="4">
+                    <div style="margin-top:22px;">
+                      <div style="font-family:'Frank Ruhl Libre',serif; font-size:18px; font-weight:700; color:#2c5c72;">{{ s.label }}</div>
+                      <p style="margin:6px 0 0; font-size:16.5px; line-height:1.95; color:#25333d; text-wrap:pretty; white-space:pre-line;">{{ s.value }}</p>
+                    </div>
+                  </sc-for>
+                  <sc-if value="{{ d.hasMedia }}" hint-placeholder-val="{{ false }}">
+                    <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(160px,1fr)); gap:10px; margin-top:22px;">
+                      <sc-for list="{{ d.media }}" as="m">
+                        <div role="img" aria-label="{{ m.name }}" style="width:100%; aspect-ratio:4/3; border-radius:4px; background-image:url({{ m.url }}); background-size:cover; background-position:center; background-color:#dfe3e2;"></div>
+                      </sc-for>
+                    </div>
+                  </sc-if>
+                </section>
+              </sc-for>
+            </div>
+          </div>
+        </sc-if>
+
+        <sc-if value="{{ isImport }}" hint-placeholder-val="{{ false }}">
+          <div style="max-width:920px; margin:0 auto; display:grid; gap:16px;">
+            <section style="background:#f7f7f5; border:1px solid #e2e4e0; border-radius:18px; padding:20px 22px;">
+              <div style="font-family:'Frank Ruhl Libre',serif; font-size:22px; font-weight:700; color:#2c5c72;">ייבוא תכנית הטיול</div>
+              <div style="font-size:14.5px; color:#43535e; line-height:1.8; margin-top:8px;">הדביקו את הטבלה מגוגל שיטס או מאקסל (העתקה רגילה של השורות). כל שורה = יום. סדר העמודות:</div>
+              <div style="display:flex; gap:8px; flex-wrap:wrap; margin-top:10px; font-size:13px;">
+                <span style="background:#e2ecf1; color:#2c5c72; border-radius:8px; padding:5px 10px;">תאריך</span>
+                <span style="background:#e2ecf1; color:#2c5c72; border-radius:8px; padding:5px 10px;">יעד</span>
+                <span style="background:#e2ecf1; color:#2c5c72; border-radius:8px; padding:5px 10px;">מלון</span>
+                <span style="background:#e2ecf1; color:#2c5c72; border-radius:8px; padding:5px 10px;">קישור מפת גוגל</span>
+                <span style="background:#e2ecf1; color:#2c5c72; border-radius:8px; padding:5px 10px;">אטרקציות</span>
+              </div>
+              <div style="font-size:13px; color:#9aa7ae; margin-top:10px; line-height:1.7;">מפרידים: טאב, נקודה‑פסיק או פסיק. שורת כותרות מזוהה ומדולגת. אטרקציות אפשר להפריד ב־/ או ב־| והן יהפכו לשורות. הקישור יזוהה אוטומטית בכל מקום בשורה.</div>
+              <textarea value="{{ importText }}" onChange="{{ onImportText }}" rows="10" dir="auto" placeholder="14/06/2026&#9;אוסלו&#9;Hotel Bristol&#9;https://maps.app.goo.gl/xxx&#9;אופרה / מוזיאון מונק" style="width:100%; box-sizing:border-box; border:1px solid #d8dad6; border-radius:12px; padding:14px; font-size:15px; background:#fff; outline:none; line-height:1.8; margin-top:16px;"></textarea>
+              <div style="display:flex; gap:10px; flex-wrap:wrap; align-items:center; margin-top:12px;">
+                <button onClick="{{ onParse }}" style="border:0; background:#2c5c72; color:#fff; padding:13px 20px; border-radius:12px; font-size:15px; cursor:pointer;" style-hover="background:#1d3a49;">בדיקת התכנית</button>
+                <button onClick="{{ onSample }}" style="border:1px solid #d8dad6; background:transparent; color:#4b5b66; padding:13px 18px; border-radius:12px; font-size:14px; cursor:pointer;">הדגמה עם טבלה לדוגמה</button>
+                <span style="font-size:13.5px; color:#6b7a85;">{{ importStatus }}</span>
+              </div>
+            </section>
+
+            <sc-if value="{{ hasPreview }}" hint-placeholder-val="{{ false }}">
+              <section style="background:#f7f7f5; border:1px solid #e2e4e0; border-radius:18px; padding:20px 22px;">
+                <div style="display:flex; align-items:center; gap:12px; flex-wrap:wrap;">
+                  <span style="font-family:'Frank Ruhl Libre',serif; font-size:19px; font-weight:700; color:#2c5c72;">{{ previewCount }} ימים זוהו</span>
+                  <span style="font-size:13px; color:#6b7a85;">{{ geoNote }}</span>
+                </div>
+                <div style="display:grid; gap:10px; margin-top:14px;">
+                  <sc-for list="{{ preview }}" as="p" hint-placeholder-count="3">
+                    <div style="background:#fff; border:1px solid #e6e8e4; border-radius:12px; padding:12px 14px;">
+                      <div style="display:flex; gap:10px; align-items:baseline; flex-wrap:wrap;">
+                        <span style="background:#2c5c72; color:#fff; font-size:11.5px; padding:3px 8px; border-radius:999px;">יום {{ p.day_number }}</span>
+                        <span style="font-weight:500; color:#2c5c72;">{{ p.destination }}</span>
+                        <span style="font-size:13px; color:#6b7a85; margin-inline-start:auto;">{{ p.dateLabel }}</span>
+                      </div>
+                      <div style="font-size:13.5px; color:#43535e; line-height:1.7; margin-top:6px;">{{ p.summary }}</div>
+                    </div>
+                  </sc-for>
+                </div>
+                <div style="display:flex; gap:10px; flex-wrap:wrap; margin-top:16px;">
+                  <button onClick="{{ onImportMerge }}" style="border:0; background:#2c5c72; color:#fff; padding:14px 20px; border-radius:12px; font-size:15px; cursor:pointer; flex:1;" style-hover="background:#1d3a49;">עדכון על היומן הקיים (שומר טקסטים ומדיה)</button>
+                  <button onClick="{{ onImportReplace }}" style="border:1px solid #e0d0cc; background:transparent; color:#a33b2f; padding:14px 18px; border-radius:12px; font-size:14.5px; cursor:pointer;">החלפת כל היומן</button>
+                </div>
+              </section>
+            </sc-if>
+          </div>
+        </sc-if>
+
+        <sc-if value="{{ isSync }}" hint-placeholder-val="{{ false }}">
+          <div style="max-width:820px; margin:0 auto; display:grid; gap:16px;">
+            <section style="background:#f7f7f5; border:1px solid #e2e4e0; border-radius:18px; padding:20px 22px;">
+              <div style="font-family:'Frank Ruhl Libre',serif; font-size:22px; font-weight:700; color:#2c5c72;">סנכרון חי בין המכשירים</div>
+              <div style="font-size:14.5px; color:#43535e; line-height:1.8; margin-top:8px;">מחברים פעם אחת את פרטי הפרויקט ב‑Supabase, ומאותו רגע כל שמירה נשלחת לשרת וכל מכשיר שולף עדכונים אוטומטית — כולל קישור הצפייה למשפחה.</div>
+              <div style="display:grid; gap:12px; margin-top:18px;">
+                <label style="display:grid; gap:5px; font-size:13px; color:#2c5c72;">Project URL
+                  <input value="{{ cfg.url }}" onChange="{{ onCfgUrl }}" dir="ltr" placeholder="https://xxxx.supabase.co" style="border:1px solid #d8dad6; border-radius:10px; padding:12px; font-size:15px; background:#fff; outline:none;">
+                </label>
+                <label style="display:grid; gap:5px; font-size:13px; color:#2c5c72;">anon public key
+                  <input value="{{ cfg.key }}" onChange="{{ onCfgKey }}" dir="ltr" placeholder="eyJhbGciOi..." style="border:1px solid #d8dad6; border-radius:10px; padding:12px; font-size:14px; background:#fff; outline:none;">
+                </label>
+                <label style="display:grid; gap:5px; font-size:13px; color:#2c5c72;">מזהה הטיול (trip_id)
+                  <input value="{{ cfg.trip }}" onChange="{{ onCfgTrip }}" dir="ltr" placeholder="norway-2026" style="border:1px solid #d8dad6; border-radius:10px; padding:12px; font-size:15px; background:#fff; outline:none;">
+                </label>
+              </div>
+              <div style="display:flex; gap:10px; flex-wrap:wrap; margin-top:16px;">
+                <button onClick="{{ onConnect }}" style="border:0; background:#2c5c72; color:#fff; padding:13px 20px; border-radius:12px; font-size:15px; cursor:pointer;" style-hover="background:#1d3a49;">התחברות ובדיקה</button>
+                <button onClick="{{ onPushAll }}" style="border:1px solid #d8dad6; background:transparent; color:#2c5c72; padding:13px 18px; border-radius:12px; font-size:14.5px; cursor:pointer;">העלאת כל היומן לשרת</button>
+                <button onClick="{{ onPullNow }}" style="border:1px solid #d8dad6; background:transparent; color:#2c5c72; padding:13px 18px; border-radius:12px; font-size:14.5px; cursor:pointer;">שליפה עכשיו</button>
+              </div>
+              <div style="font-size:13.5px; color:#6b7a85; margin-top:12px;">{{ syncState }}</div>
+            </section>
+
+            <sc-if value="{{ liveUrl }}" hint-placeholder-val="{{ false }}">
+              <section style="background:#f7f7f5; border:1px solid #e2e4e0; border-radius:18px; padding:20px 22px;">
+                <div style="font-family:'Frank Ruhl Libre',serif; font-size:19px; font-weight:700; color:#2c5c72;">קישור צפייה חי למשפחה</div>
+                <div style="font-size:13.5px; color:#6b7a85; margin-top:6px; line-height:1.7;">נפתח במצב קריאה בלבד ומציג את מה שיש בשרת באותו רגע. כדי שהקישור יעבוד גם אצל מי שאינו בפרויקט, יש להעלות את קובץ היומן לאחסון סטטי (Vercel, Netlify, GitHub Pages) ולהחליף את תחילת הכתובת.</div>
+                <div style="display:flex; gap:8px; align-items:stretch; flex-wrap:wrap; margin-top:12px;">
+                  <input value="{{ liveUrl }}" readOnly dir="ltr" onFocus="{{ onSelectRoute }}" style="flex:1; min-width:220px; border:1px solid #d8dad6; border-radius:10px; padding:11px 12px; font-size:12.5px; background:#fff; color:#4b5b66;">
+                  <button onClick="{{ onCopyLive }}" style="border:1px solid #d8dad6; background:#eef3f6; color:#2c5c72; border-radius:10px; padding:11px 16px; font-size:14px; cursor:pointer; white-space:nowrap;" style-hover="background:#e2ecf1;">{{ liveCopyLabel }}</button>
+                </div>
+              </section>
+            </sc-if>
+
+            <section style="background:#f7f7f5; border:1px solid #e2e4e0; border-radius:18px; padding:20px 22px;">
+              <div style="font-family:'Frank Ruhl Libre',serif; font-size:19px; font-weight:700; color:#2c5c72;">הקמה חד‑פעמית ב‑Supabase</div>
+              <ol style="font-size:14.5px; color:#43535e; line-height:2; margin:10px 0 0; padding-inline-start:22px;">
+                <li>פותחים פרויקט חדש ב‑supabase.com (חינמי).</li>
+                <li>ב‑SQL Editor מריצים את הקובץ <code dir="ltr">supabase-schema.sql</code> שנמצא בפרויקט — הוא יוצר את הטבלאות, ההרשאות ודלי המדיה.</li>
+                <li>ב‑Settings → API מעתיקים את ה‑Project URL ואת ה‑anon key לשדות שלמעלה.</li>
+                <li>לוחצים "העלאת כל היומן לשרת" פעם אחת, ומאותו רגע שני המכשירים מסונכרנים.</li>
+              </ol>
+            </section>
+          </div>
+        </sc-if>
+
+      </main>
+
+      <div>
+        <nav data-noprint data-mobile-nav style="position:fixed; bottom:0; inset-inline:0; z-index:700; background:rgba(247,247,245,.97); backdrop-filter:blur(10px); border-top:1px solid #dfe1dd; display:grid; grid-auto-flow:column; grid-auto-columns:1fr; padding:8px 6px calc(8px + env(safe-area-inset-bottom));">
+          <sc-for list="{{ tabs }}" as="t" hint-placeholder-count="4">
+            <button onClick="{{ t.go }}" style="{{ t.mobileStyle }}">{{ t.label }}</button>
+          </sc-for>
+        </nav>
+      </div>
+    </div>
+  </sc-if>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;tripTitle&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;נורווגיה 2026&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;pinCode&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;7799&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;mapTiles&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;רחוב&quot;,&quot;טופוגרפית&quot;],&quot;default&quot;:&quot;רחוב&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;showRoute&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;}}">
+class Component extends DCLogic {
+  static SEED() {
+    const d = (n, date, title, lat, lng, o) => Object.assign({
+      id: 'd' + n, day_number: n, date, title, lat, lng,
+      destination: '', hotel_name: '', map_url: '', attractions: '', accommodation: '',
+      distance_km: '0', drive_time: '—', ferries: '', weather_description: '',
+      sunrise_time: '04:40', sunset_time: '22:10',
+      experiences: '', challenges: '', people_places: '', culinary: '',
+      located: true, media: [], updated_at: Date.now() - (12 - n) * 3600000, updated_by: 'יעל'
+    }, o);
+    return [
+      d(1, '2026-06-14', 'נחיתה באוסלו', 59.913, 10.752, {
+        destination: 'אוסלו', hotel_name: 'Thon Hotel Opera', map_url: 'https://maps.google.com/?q=Oslo',
+        attractions: 'בית האופרה\nמוזיאון מונק\nשוק מאתאלן',
+        accommodation: 'צ׳ק‑אין מ־15:00, חדר קטן אבל נקי מול תחנת הרכבת המרכזית. ארוחת בוקר עד 10:00 — משתלמת.',
+        distance_km: '28', drive_time: '35 דקות', weather_description: '17°, בהיר עם עננות גבוהה',
+        sunrise_time: '03:55', sunset_time: '22:42',
+        experiences: 'נחתנו ב־13:40 ולקחנו את הרכבת לעיר. הדבר הראשון שמרגישים הוא האור — בשמונה בערב זה עדיין נראה כמו אחר הצהריים. הליכה ארוכה לאורך האופרה, יחפים על השיש הלבן.',
+        people_places: 'שכונת גרונרלוקה, גשר הנהר אקרסלבה. בעל הדירה, מגנוס, השאיר לנו מפה מצוירת ביד עם סימונים של מאפיות.',
+        culinary: 'קנלבולה ראשונה בגרונרלוקה. בערב סלמון אפוי עם שמיר בשוק מאתאלן.',
+        challenges: 'הפער בין המחירים למה שהתכוונו להוציא. החלטנו: ארוחת בוקר וערב מהסופר, צהריים בחוץ.'
+      }),
+      d(2, '2026-06-15', 'אוסלו → לילהאמר', 61.115, 10.466, {
+        destination: 'לילהאמר', hotel_name: 'Scandic Lillehammer', map_url: 'https://maps.google.com/?q=Lillehammer',
+        attractions: 'מוזיאון מייהאוגן\nמגלשת הבוב האולימפית\nטיילת אגם מיוסה',
+        accommodation: 'חניה חינם בחצי מדרון מהמלון. ביקשנו חדר בקומה גבוהה — נוף לאגם.',
+        distance_km: '185', drive_time: '2 שעות 20 דקות', weather_description: '14°, ממטרים לסירוגין',
+        experiences: 'איסוף הרכב בבוקר, ונסיעה ראשונה על כביש נורווגי. אגם מיוסה מלווה אותנו כמעט כל הדרך מימין.',
+        people_places: 'מוזיאון מייהאוגן בלילהאמר — בתי עץ מהמאה ה־18 שהועברו לכאן קורה־קורה.',
+        culinary: 'עצרנו בדוכן דרכים לנקניקיית כבש בלאפה. מפתיע לטובה.',
+        challenges: 'לקח לנו זמן להתרגל למגבלות המהירות ולמצלמות. עדיף להוסיף חצי שעה לכל הערכה.'
+      }),
+      d(3, '2026-06-16', 'לילהאמר → גיירנגר', 62.100, 7.207, {
+        destination: 'גיירנגר', hotel_name: 'Hotel Union Geiranger', map_url: 'https://maps.google.com/?q=Geiranger',
+        attractions: 'מעבורת הפיורד מהלסילט\nתצפית דלסניבה\nמפל שבע האחיות',
+        accommodation: 'המלון הוותיק מעל המזח. בריכה חמה בחוץ עם נוף לפיורד — שווה את הערב כולו.',
+        distance_km: '312', drive_time: '5 שעות 10 דקות', weather_description: '9°, ערפל צפוף בפסגות, התבהר בירידה',
+        ferries: 'הלסילט–גיירנגר · 11:30 · 60 דקות · 480 NOK',
+        experiences: 'המעבורת אל גיירנגר היא הרגע שבו הבנו למה באנו. שני מפלים גדולים משני צידי הפיורד, וכולם על הסיפון בשקט מוחלט.',
+        people_places: 'תצפית דלסניבה בשעת ערב, כמעט ריקה. פגשנו זוג מבוגר מטרונדהיים שנתן לנו טיפ על מסלול צדדי.',
+        culinary: 'מרק דגים סמיך במסעדה מעל המזח. לחם שיפון חם.',
+        challenges: 'ויכוח קטן על לוח הזמנים — מי שרוצה לעצור בכל תצפית מול מי שרוצה להגיע לפני החושך. סיכמנו על שלוש עצירות מתוכננות ביום.'
+      }),
+      d(4, '2026-06-17', 'גיירנגר → אלסונד', 62.472, 6.155, {
+        destination: 'אלסונד', hotel_name: 'Quality Hotel Waterfront', map_url: 'https://maps.google.com/?q=Alesund',
+        attractions: 'כביש הנשרים\nדרך הטרולים\nתצפית אקסלה',
+        distance_km: '104', drive_time: '2 שעות 30 דקות', weather_description: '13°, שמש ורוח ים',
+        ferries: 'מולדה–ווסטנס · 15:10 · 35 דקות · 310 NOK',
+        experiences: 'כביש הנשרים, אחר כך דרך הטרולים. אחת עשרה סרפנטינות ורוח קרה בכל עצירה.',
+        people_places: 'תצפית אקסלה מעל אלסונד, 418 מדרגות.',
+        culinary: 'בקאלאו במסעדת נמל.', challenges: ''
+      }),
+      d(5, '2026-06-18', 'אלסונד → ברגן', 60.391, 5.322, {
+        distance_km: '380', drive_time: '6 שעות 40 דקות', weather_description: '11°, גשם — כמצופה מברגן',
+        ferries: 'אנדלסנס–לאוויק · 09:20 · 25 דקות',
+        experiences: '', people_places: 'בריגן, רציף העץ הצבעוני.', culinary: '', challenges: ''
+      }),
+      d(6, '2026-06-19', 'ברגן → פלום', 60.863, 7.113, {
+        distance_km: '166', drive_time: '2 שעות 50 דקות', weather_description: '',
+        experiences: '', people_places: '', culinary: '', challenges: ''
+      })
+    ];
+  }
+
+  static FIELDS() {
+    return [
+      { key: 'experiences', label: 'חוויות ותובנות', hint: 'מה קרה היום ומה זה עשה לנו' },
+      { key: 'challenges', label: 'אתגרים וקונפליקטים', hint: 'מה היה קשה, ואיך פתרנו' },
+      { key: 'people_places', label: 'אנשים ומקומות', hint: 'מי פגשנו, איפה עצרנו' },
+      { key: 'culinary', label: 'קולינריה ואוכל', hint: 'מה אכלנו ואיפה' },
+      { key: 'accommodation', label: 'המלון והלינה', hint: 'החדר, הצ׳ק‑אין, ארוחת הבוקר, מה שכדאי לזכור' }
+    ];
+  }
+
+  static GEO() {
+    return {
+      'אוסלו': [59.913, 10.752], 'oslo': [59.913, 10.752],
+      'לילהאמר': [61.115, 10.466], 'lillehammer': [61.115, 10.466],
+      'גיירנגר': [62.100, 7.207], 'geiranger': [62.100, 7.207],
+      'אלסונד': [62.472, 6.155], 'alesund': [62.472, 6.155], 'ålesund': [62.472, 6.155],
+      'ברגן': [60.391, 5.322], 'bergen': [60.391, 5.322],
+      'פלום': [60.863, 7.113], 'flam': [60.863, 7.113], 'flåm': [60.863, 7.113],
+      'סטוונגר': [58.970, 5.733], 'stavanger': [58.970, 5.733],
+      'טרונדהיים': [63.430, 10.395], 'trondheim': [63.430, 10.395],
+      'טרומסו': [69.649, 18.956], 'tromso': [69.649, 18.956], 'tromsø': [69.649, 18.956],
+      'לופוטן': [68.148, 13.611], 'lofoten': [68.148, 13.611],
+      'בודו': [67.280, 14.405], 'bodo': [67.280, 14.405], 'bodø': [67.280, 14.405],
+      'אולדן': [61.833, 6.812], 'olden': [61.833, 6.812], 'loen': [61.874, 6.855],
+      'ווס': [60.630, 6.415], 'voss': [60.630, 6.415],
+      'אודה': [60.067, 6.545], 'odda': [60.067, 6.545],
+      'נורדפיורד': [61.900, 5.750], 'kristiansand': [58.146, 7.995], 'קריסטיאנסנד': [58.146, 7.995],
+      'מולדה': [62.737, 7.159], 'molde': [62.737, 7.159],
+      'דומבוס': [62.075, 9.126], 'dombas': [62.075, 9.126], 'dombås': [62.075, 9.126],
+      'קופנהגן': [55.676, 12.568], 'copenhagen': [55.676, 12.568], 'kobenhavn': [55.676, 12.568], 'københavn': [55.676, 12.568],
+      'שטוקהולם': [59.329, 18.069], 'stockholm': [59.329, 18.069],
+      'הלסינקי': [60.170, 24.938], 'helsinki': [60.170, 24.938],
+      'גטבורג': [57.709, 11.974], 'gothenburg': [57.709, 11.974], 'goteborg': [57.709, 11.974],
+      'מאלמו': [55.605, 13.003], 'malmo': [55.605, 13.003], 'malmö': [55.605, 13.003],
+      'הירטסהאלס': [57.588, 9.960], 'hirtshals': [57.588, 9.960],
+      'אורהוס': [56.163, 10.203], 'aarhus': [56.163, 10.203],
+      'קיל': [54.323, 10.135], 'kiel': [54.323, 10.135],
+      'המבורג': [53.551, 9.993], 'hamburg': [53.551, 9.993],
+      'ריקיאוויק': [64.147, -21.940], 'reykjavik': [64.147, -21.940],
+      'קירקנס': [69.727, 30.045], 'kirkenes': [69.727, 30.045],
+      'אלטה': [69.969, 23.271], 'alta': [69.969, 23.271],
+      'נורדקאפ': [71.171, 25.784], 'nordkapp': [71.171, 25.784], 'north cape': [71.171, 25.784],
+      'נארוויק': [68.438, 17.427], 'narvik': [68.438, 17.427],
+      'סבולברד': [78.223, 15.626], 'svalbard': [78.223, 15.626], 'longyearbyen': [78.223, 15.626],
+      'הונינגסווג': [70.982, 25.970], 'honningsvag': [70.982, 25.970],
+      'סבולוור': [68.234, 14.568], 'svolvaer': [68.234, 14.568], 'svolvær': [68.234, 14.568],
+      'רייני': [67.930, 13.086], 'reine': [67.930, 13.086],
+      'הנינגסוור': [68.157, 14.203], 'henningsvaer': [68.157, 14.203],
+      'שירדל': [61.470, 6.869], 'skjolden': [61.489, 7.594],
+      'לום': [61.838, 8.567], 'lom': [61.838, 8.567],
+      'ריוקן': [59.875, 8.593], 'rjukan': [59.875, 8.593],
+      'סטאלהיים': [60.834, 6.685], 'stalheim': [60.834, 6.685],
+      'אורלנד': [60.905, 7.190], 'aurland': [60.905, 7.190],
+      'לרדל': [61.100, 7.478], 'laerdal': [61.100, 7.478],
+      'סוגנדל': [61.230, 7.100], 'sogndal': [61.230, 7.100],
+      'ברייקסדל': [61.664, 6.888], 'briksdal': [61.664, 6.888],
+      'סטריאן': [61.905, 6.716], 'stryn': [61.905, 6.716],
+      'טרולפיורד': [68.360, 14.960], 'preikestolen': [58.986, 6.190], 'פרייקסטולן': [58.986, 6.190],
+      'trolltunga': [60.124, 6.740], 'טרולטונגה': [60.124, 6.740],
+      'רורוס': [62.575, 11.385], 'roros': [62.575, 11.385],
+      'האמרפסט': [70.663, 23.682], 'hammerfest': [70.663, 23.682],
+      'ורשה': [52.230, 21.012], 'warsaw': [52.230, 21.012], 'warszawa': [52.230, 21.012], 'varsha': [52.230, 21.012],
+      'קרקוב': [50.065, 19.945], 'krakow': [50.065, 19.945],
+      'ברלין': [52.520, 13.405], 'berlin': [52.520, 13.405],
+      'תל אביב': [32.085, 34.782], 'tel aviv': [32.085, 34.782],
+      'הלסינגבורג': [56.047, 12.694], 'helsingborg': [56.047, 12.694],
+      'הלסינגור': [56.036, 12.614], 'helsingor': [56.036, 12.614],
+      'באלסטרנד': [61.200, 6.535], 'balestrand': [61.200, 6.535],
+      'איידפיורד': [60.468, 7.070], 'eidfjord': [60.468, 7.070],
+      'לואן': [61.874, 6.855], 'לון': [61.874, 6.855]
+    };
+  }
+
+  static geocode(name) {
+    const g = Component.GEO(), key = (name || '').trim().toLowerCase().replace(/[.,]/g, '');
+    if (!key) return null;
+    if (g[key]) return g[key];
+    const words = key.split(/[\s\-–>/]+/).filter(Boolean);
+    for (let i = words.length - 1; i >= 0; i--) if (g[words[i]]) return g[words[i]];
+    const hit = Object.keys(g).find(k => k.length > 3 && key.indexOf(k) > -1);
+    return hit ? g[hit] : null;
+  }
+
+  static tzName(lat, lng) {
+    if (lat >= 29 && lat <= 34 && lng >= 33 && lng <= 36) return 'Asia/Jerusalem';
+    if (lng >= 14 && lng <= 24.2 && lat >= 48 && lat <= 55) return 'Europe/Warsaw';
+    if (lng >= 19.5 && lat >= 58) return 'Europe/Helsinki';
+    if (lng >= -1 && lng <= 32) return 'Europe/Oslo';
+    if (lng < -1 && lng >= -11) return 'Europe/London';
+    if (lng < -11) return 'Atlantic/Reykjavik';
+    return 'Europe/Oslo';
+  }
+
+  // real UTC offset (DST included) for the day's political time zone
+  static tzOffset(lat, lng, dateObj) {
+    const zone = Component.tzName(lat, lng);
+    try {
+      const s = new Intl.DateTimeFormat('en-US', { timeZone: zone, timeZoneName: 'shortOffset' })
+        .format(dateObj).match(/GMT([+-]\d{1,2})(?::(\d{2}))?/);
+      if (s) return (+s[1]) + (s[2] ? Math.sign(+s[1]) * (+s[2]) / 60 : 0);
+    } catch (e) {}
+    return Math.round(lng / 15);
+  }
+
+  // NOAA solar position approximation — returns {sunrise, sunset} local wall-clock strings
+  static sunTimes(dateISO, lat, lng, tzOffsetHours) {
+    if (!dateISO || typeof lat !== 'number' || typeof lng !== 'number') return null;
+    const d = new Date(dateISO + 'T12:00:00Z');
+    if (isNaN(d)) return null;
+    const start = Date.UTC(d.getUTCFullYear(), 0, 1);
+    const doy = Math.floor((d.getTime() - start) / 86400000) + 1;
+    const rad = Math.PI / 180;
+    const gamma = 2 * Math.PI / 365 * (doy - 1 + 0.5);
+    const eqtime = 229.18 * (0.000075 + 0.001868 * Math.cos(gamma) - 0.032077 * Math.sin(gamma)
+      - 0.014615 * Math.cos(2 * gamma) - 0.040849 * Math.sin(2 * gamma));
+    const decl = 0.006918 - 0.399912 * Math.cos(gamma) + 0.070257 * Math.sin(gamma)
+      - 0.006758 * Math.cos(2 * gamma) + 0.000907 * Math.sin(2 * gamma)
+      - 0.002697 * Math.cos(3 * gamma) + 0.00148 * Math.sin(3 * gamma);
+    const cosH = (Math.cos(90.833 * rad) / (Math.cos(lat * rad) * Math.cos(decl)))
+      - Math.tan(lat * rad) * Math.tan(decl);
+    if (cosH > 1) return { sunrise: 'ללא זריחה', sunset: 'לילה קוטבי' };
+    if (cosH < -1) return { sunrise: 'שמש חצות', sunset: 'שמש חצות' };
+    const ha = Math.acos(cosH) / rad;
+    const tz = tzOffsetHours === undefined || tzOffsetHours === null
+      ? Component.tzOffset(lat, lng, d) : tzOffsetHours;
+    const fmt = (minUTC) => {
+      let m = minUTC + tz * 60;
+      m = ((m % 1440) + 1440) % 1440;
+      const hh = Math.floor(m / 60), mm = Math.round(m % 60);
+      return ('0' + hh).slice(-2) + ':' + ('0' + (mm === 60 ? 0 : mm)).slice(-2);
+    };
+    return {
+      sunrise: fmt(720 - 4 * (lng + ha) - eqtime),
+      sunset: fmt(720 - 4 * (lng - ha) - eqtime)
+    };
+  }
+
+  static inBox(lat, lng) {
+    return typeof lat === 'number' && typeof lng === 'number'
+      && lat >= 29 && lat <= 72 && lng >= -25 && lng <= 45;
+  }
+
+  static cache() {
+    let c = {};
+    try { c = JSON.parse(localStorage.getItem('norway-geo-cache') || '{}'); } catch (e) { return {}; }
+    let dirty = false;
+    Object.keys(c).forEach(k => {
+      const v = c[k];
+      const ok = Array.isArray(v) && Component.inBox(+v[0], +v[1]) && !Component.geocode(k);
+      if (!ok) { delete c[k]; dirty = true; }
+    });
+    if (dirty) { try { localStorage.setItem('norway-geo-cache', JSON.stringify(c)); } catch (e) {} }
+    return c;
+  }
+
+  lookupMissing() {
+    const pend = this.state.days.filter(d => !d.located && (d.destination || d.title));
+    if (!pend.length || this.looking) return;
+    const cache = Component.cache();
+    this.looking = true;
+    const next = (i) => {
+      if (i >= pend.length) {
+        this.looking = false;
+        try { localStorage.setItem('norway-geo-cache', JSON.stringify(cache)); } catch (e) {}
+        return;
+      }
+      const d = pend[i];
+      const q = (d.destination || d.title || '').split(/[→>\-–]/).pop().trim();
+      const apply = (ll) => {
+        if (ll) {
+          this.setState(s => ({
+            days: s.days.map(x => x.id === d.id ? Object.assign({}, x, { lat: ll[0], lng: ll[1], located: true }) : x)
+          }), () => { this.persist(); this.drawMap(true); });
+        }
+        next(i + 1);
+      };
+      if (cache[q]) return apply(cache[q]);
+      // bounded to the Europe/Mediterranean box so a typo cannot resolve to another continent
+      fetch('https://nominatim.openstreetmap.org/search?format=json&limit=1&bounded=1'
+        + '&viewbox=-25,72,45,29&q=' + encodeURIComponent(q))
+        .then(r => r.json())
+        .then(j => {
+          const hit = j && j[0] ? [+j[0].lat, +j[0].lon] : null;
+          if (hit && Component.inBox(hit[0], hit[1])) { cache[q] = hit; apply(hit); }
+          else next(i + 1);
+        })
+        .catch(() => next(i + 1));
+    };
+    next(0);
+  }
+
+  static parsePlan(text) {
+    const lines = String(text || '').split(/\r?\n/).map(l => l.trim()).filter(Boolean);
+    const rows = [];
+    lines.forEach(line => {
+      if (/^(תאריך|date)\b/i.test(line)) return;
+      let url = '';
+      const um = line.match(/https?:\/\/\S+/);
+      if (um) { url = um[0]; line = line.replace(um[0], '\t'); }
+      let cells = line.indexOf('\t') > -1 ? line.split('\t')
+        : line.indexOf(';') > -1 ? line.split(';')
+        : line.split(/\s*,\s*/);
+      cells = cells.map(c => c.trim());
+      const dateCell = cells.shift() || '';
+      const rest = cells.filter(c => c !== '');
+      const iso = Component.toISO(dateCell);
+      if (!iso) return;
+      rows.push({
+        date: iso,
+        destination: rest[0] || '',
+        hotel_name: rest[1] || '',
+        attractions: (rest.slice(2).join(' / ') || '').split(/\s*[\/|•]\s*/).filter(Boolean).join('\n'),
+        map_url: url
+      });
+    });
+    rows.sort((a, b) => a.date < b.date ? -1 : 1);
+    return rows.map((r, i) => Object.assign(r, { day_number: i + 1 }));
+  }
+
+  static toISO(s) {
+    s = (s || '').trim();
+    let m = s.match(/^(\d{4})[-\/.](\d{1,2})[-\/.](\d{1,2})$/);
+    if (m) return m[1] + '-' + ('0' + m[2]).slice(-2) + '-' + ('0' + m[3]).slice(-2);
+    m = s.match(/^(\d{1,2})[-\/.](\d{1,2})[-\/.](\d{2,4})$/);
+    if (m) {
+      const y = m[3].length === 2 ? '20' + m[3] : m[3];
+      return y + '-' + ('0' + m[2]).slice(-2) + '-' + ('0' + m[1]).slice(-2);
+    }
+    return null;
+  }
+
+  static SAMPLE() {
+    return [
+      'תאריך\tיעד\tמלון\tמפת גוגל\tאטרקציות',
+      '14/06/2026\tאוסלו\tThon Hotel Opera\thttps://maps.app.goo.gl/oslo1\tבית האופרה / מוזיאון מונק / שוק מאתאלן',
+      '15/06/2026\tלילהאמר\tScandic Lillehammer\thttps://maps.app.goo.gl/lil2\tמייהאוגן / מגלשת הבוב האולימפית',
+      '16/06/2026\tגיירנגר\tHotel Union Geiranger\thttps://maps.app.goo.gl/gei3\tמעבורת הפיורד / תצפית דלסניבה / מפל שבע האחיות',
+      '17/06/2026\tאלסונד\tQuality Hotel Waterfront\thttps://maps.app.goo.gl/ale4\tכביש הנשרים / דרך הטרולים / תצפית אקסלה',
+      '18/06/2026\tברגן\tOpus XVI\thttps://maps.app.goo.gl/ber5\tבריגן / רכבל פלויען / שוק הדגים'
+    ].join('\n');
+  }
+
+  static snapshot() {
+    try {
+      const el = document.getElementById('journal-snapshot');
+      const p = el ? JSON.parse(el.textContent) : null;
+      if (!p || !p.days || !p.days.length) return null;
+      p.days = p.days.map(d => Object.assign({
+        id: 'd' + d.date, distance_km: '', drive_time: '', ferries: '', weather_description: '',
+        sunrise_time: '', sunset_time: '', experiences: '', challenges: '', people_places: '',
+        culinary: '', accommodation: '', hotel_name: '', map_url: '', attractions: '',
+        media: [], updated_at: Date.now(), updated_by: p.who || ''
+      }, d));
+      return p;
+    } catch (e) { return null; }
+  }
+
+  static load() {
+    try {
+      const raw = localStorage.getItem('norway-journal-v1');
+      if (!raw) {
+        const snap = Component.snapshot();
+        if (snap) return snap;
+      }
+      if (raw) {
+        const p = JSON.parse(raw);
+        if (p && p.days && p.days.length) {
+          const seed = Component.SEED();
+          p.days = p.days.map(d => {
+            const s = seed.find(x => x.date === d.date) || {};
+            const fill = {};
+            ['destination', 'hotel_name', 'map_url', 'attractions', 'accommodation'].forEach(k => {
+              if (d[k] === undefined) fill[k] = s[k] || '';
+            });
+            const merged = Object.assign({ media: [] }, d, fill);
+            const ll = Component.geocode(merged.destination || merged.title);
+            if (ll) { merged.lat = ll[0]; merged.lng = ll[1]; merged.located = true; }
+            else if (!Component.inBox(merged.lat, merged.lng)) { merged.located = false; merged.lat = null; merged.lng = null; }
+            else if (merged.located === undefined) merged.located = false;
+            return merged;
+          });
+          return p;
+        }
+      }
+    } catch (e) {}
+    return null;
+  }
+
+  state = (() => {
+    const saved = Component.load();
+    return {
+      days: (saved && saved.days) || Component.SEED(),
+      curId: (saved && saved.curId) || 'd3',
+      screen: 'dash',
+      auth: 'locked',
+      who: (saved && saved.who) || '',
+      pinInput: '',
+      pinError: false,
+      isMobile: false,
+      savedAt: null,
+      importText: '',
+      preview: null,
+      importStatus: ''
+    };
+  })();
+
+  applyImport(rows, mode) {
+    this.setState(st => {
+      const byDate = {};
+      st.days.forEach(d => { byDate[d.date] = d; });
+      let prev = null;
+      const days = rows.map(r => {
+        const base = mode === 'merge' && byDate[r.date] ? byDate[r.date] : null;
+        const ll = Component.geocode(r.destination) || Component.geocode(r.destination && r.hotel_name)
+          || (base && base.located ? [base.lat, base.lng] : null);
+        const day = Object.assign({
+          id: (base && base.id) || 'd' + r.date,
+          distance_km: '', drive_time: '', ferries: '', weather_description: '',
+          sunrise_time: '04:00', sunset_time: '22:30',
+          experiences: '', challenges: '', people_places: '', culinary: '', accommodation: '',
+          media: []
+        }, base || {}, {
+          day_number: r.day_number, date: r.date,
+          title: r.destination || (base && base.title) || 'יום ' + r.day_number,
+          destination: r.destination,
+          hotel_name: r.hotel_name || (base && base.hotel_name) || '',
+          map_url: r.map_url || (base && base.map_url) || '',
+          attractions: r.attractions || (base && base.attractions) || '',
+          lat: ll ? ll[0] : null, lng: ll ? ll[1] : null, located: !!ll,
+          updated_at: Date.now(), updated_by: st.who || 'ייבוא תכנית'
+        });
+        prev = day;
+        return day;
+      });
+      const extra = mode === 'merge' ? st.days.filter(d => !rows.some(r => r.date === d.date)) : [];
+      const all = days.concat(extra).sort((a, b) => (a.date < b.date ? -1 : 1)).map((d, i) => Object.assign({}, d, { day_number: i + 1 }));
+      return {
+        days: all, curId: (all[0] || {}).id, preview: null, importText: '', screen: 'dash',
+        importStatus: 'התכנית יובאה · ' + all.length + ' ימים'
+      };
+    }, () => { this.persist(); if (this.map) this.drawMap(true); this.lookupMissing(); });
+  }
+
+  componentDidMount() {
+    this.mq = window.matchMedia('(max-width: 859px)');
+    this.onResize = () => {
+      const w = document.documentElement.clientWidth || window.innerWidth;
+      const m = w < 860;
+      if (m !== this.state.isMobile) this.setState({ isMobile: m });
+    };
+    this.onResize();
+    if (window.ResizeObserver) {
+      this.ro = new ResizeObserver(this.onResize);
+      this.ro.observe(document.documentElement);
+    }
+    if (this.mq.addEventListener) this.mq.addEventListener('change', this.onResize);
+    else this.mq.addListener(this.onResize);
+    window.addEventListener('resize', this.onResize);
+    requestAnimationFrame(this.onResize);
+    this.lookupMissing();
+    try {
+      const p = new URLSearchParams(location.search);
+      if (p.get('view') === '1' || location.hash === '#view') this.setState({ auth: 'guest', screen: 'public' });
+    } catch (e) {}
+    this.startPolling();
+  }
+  componentWillUnmount() {
+    if (this.poll) clearInterval(this.poll);
+    window.removeEventListener('resize', this.onResize);
+    if (this.ro) this.ro.disconnect();
+    if (!this.mq) return;
+    if (this.mq.removeEventListener) this.mq.removeEventListener('change', this.onResize);
+    else this.mq.removeListener(this.onResize);
+  }
+  componentDidUpdate() { this.drawMap(); }
+
+  persist(extra) {
+    const s = Object.assign({ days: this.state.days, curId: this.state.curId, who: this.state.who }, extra || {});
+    try { localStorage.setItem('norway-journal-v1', JSON.stringify(s)); } catch (e) {}
+  }
+
+  sorted() { return this.state.days.slice().sort((a, b) => (+a.day_number) - (+b.day_number)); }
+  current() { return this.state.days.find(d => d.id === this.state.curId) || this.sorted()[0]; }
+
+  updateField(key, val) {
+    this.setState(st => ({
+      days: st.days.map(d => d.id === st.curId ? Object.assign({}, d, { [key]: val, updated_at: Date.now(), updated_by: st.who || 'אורח' }) : d),
+      savedAt: null
+    }), () => this.persist());
+  }
+
+  mapRef = (el) => {
+    if (!el) { if (this.map) { try { this.map.remove(); } catch (e) {} this.map = null; } this.mapEl = null; return; }
+    if (this.mapEl === el && this.map) return;
+    this.mapEl = el;
+    const tryInit = () => {
+      if (!window.L || !this.mapEl) { this.mapTimer = setTimeout(tryInit, 120); return; }
+      const L = window.L;
+      this.map = L.map(this.mapEl, { scrollWheelZoom: false, zoomControl: true, zoomAnimation: false, fadeAnimation: false, markerZoomAnimation: false });
+      const topo = this.props.mapTiles === 'טופוגרפית';
+      L.tileLayer(topo
+        ? 'https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png'
+        : 'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
+        { attribution: '© OpenStreetMap', maxZoom: topo ? 15 : 19, crossOrigin: true }).addTo(this.map);
+      this.layer = L.layerGroup().addTo(this.map);
+      this.markerLayer = L.layerGroup().addTo(this.map);
+      this.map.on('zoomend moveend', () => this.placeMarkers());
+      this.drawMap(true);
+      setTimeout(() => this.map && this.map.invalidateSize(), 220);
+    };
+    tryInit();
+  };
+
+  // spread markers that land within ~34px of each other at the current zoom,
+  // drawing a hairline back to their true position
+  placeMarkers() {
+    if (!this.map || !window.L || !this.groups || !this.map._loaded) return;
+    const L = window.L;
+    this.markerLayer.clearLayers();
+    const placed = [];
+    const MIN = 34;
+    this.groups.forEach(g => {
+      const anchor = this.map.latLngToContainerPoint([g.lat, g.lng]);
+      let pt = anchor, ring = 1, i = 0;
+      while (placed.some(p => p.distanceTo(pt) < MIN) && ring < 6) {
+        const per = 6 * ring, ang = (i % per) / per * 2 * Math.PI + ring * 0.6;
+        const r = MIN * 0.95 * ring;
+        pt = L.point(anchor.x + Math.cos(ang) * r, anchor.y + Math.sin(ang) * r);
+        i++;
+        if (i % per === 0) ring++;
+      }
+      placed.push(pt);
+      const ll = this.map.containerPointToLatLng(pt);
+      if (pt.distanceTo(anchor) > 2) {
+        L.polyline([[g.lat, g.lng], ll], { color: '#2c5c72', weight: 1, opacity: .55 }).addTo(this.markerLayer);
+        L.circleMarker([g.lat, g.lng], { radius: 2.5, color: '#2c5c72', fillOpacity: 1, weight: 0 }).addTo(this.markerLayer);
+      }
+      const active = g.days.some(d => d.id === this.state.curId);
+      const icon = L.divIcon({
+        className: '',
+        html: '<div dir="ltr" style="direction:ltr;width:' + g.w + 'px;height:30px;border-radius:15px;display:grid;place-items:center;font:500 13px Heebo,sans-serif;color:#fff;background:' +
+          (active ? '#9c6b3c' : '#2c5c72') + ';box-shadow:0 2px 8px rgba(0,0,0,.35);border:2px solid #fff;">' + g.label + '</div>',
+        iconSize: [g.w, 30], iconAnchor: [g.w / 2, 15]
+      });
+      L.marker(ll, { icon, riseOnHover: true })
+        .bindTooltip(g.tip, { direction: 'top', offset: [0, -14] })
+        .on('click', () => {
+          const idx = g.days.findIndex(d => d.id === this.state.curId);
+          const nextDay = g.days[(idx + 1) % g.days.length];
+          this.setState({ curId: nextDay.id, screen: g.days.length > 1 && idx > -1 ? this.state.screen : 'editor' }, () => this.persist());
+        })
+        .addTo(this.markerLayer);
+    });
+  }
+
+  drawMap(fit, all) {
+    if (!this.map || !window.L) return;
+    const L = window.L;
+    this.layer.clearLayers();
+    // synchronous repair: any day the dictionary can resolve gets coords before drawing,
+    // so a missing stop can't be skipped and short-circuit the route line
+    const fixes = this.state.days.filter(d => !(d.located && typeof d.lat === 'number')
+      && Component.geocode(d.destination || d.title));
+    if (fixes.length) {
+      this.setState(s => ({
+        days: s.days.map(d => {
+          const ll = (d.located && typeof d.lat === 'number') ? null : Component.geocode(d.destination || d.title);
+          return ll ? Object.assign({}, d, { lat: ll[0], lng: ll[1], located: true }) : d;
+        })
+      }), () => this.persist());
+      return;
+    }
+    const days = this.sorted().filter(d => d.located && typeof d.lat === 'number' && typeof d.lng === 'number');
+    const pts = days.map(d => [d.lat, d.lng]);
+    if (!this.map._loaded) this.map.setView([62, 9], 5, { animate: false });
+    if (this.props.showRoute !== false && pts.length > 1) {
+      L.polyline(pts, { color: '#2c5c72', weight: 3, opacity: .8, dashArray: '1 7', lineCap: 'round' }).addTo(this.layer);
+    }
+
+    // group days that share a location so identical coords don't stack invisibly
+    const groups = {};
+    days.forEach(d => {
+      const k = d.lat.toFixed(2) + ',' + d.lng.toFixed(2);
+      (groups[k] = groups[k] || []).push(d);
+    });
+    this.groups = Object.keys(groups).map(k => {
+      const g = groups[k];
+      const nums = g.map(d => +d.day_number).sort((a, b) => a - b);
+      const consecutive = nums.every((n, i) => i === 0 || n === nums[i - 1] + 1);
+      const label = nums.length === 1 ? String(nums[0])
+        : consecutive ? nums[0] + '–' + nums[nums.length - 1]
+        : nums.join(', ');
+      return {
+        days: g, lat: g[0].lat, lng: g[0].lng, label,
+        w: nums.length === 1 ? 30 : Math.max(44, 13 + label.length * 8),
+        tip: g.map(d => 'יום ' + d.day_number + ' · ' + d.title).join('<br>')
+      };
+    }).sort((a, b) => a.days[0].day_number - b.days[0].day_number);
+
+    if (!fit || !pts.length) { this.placeMarkers(); return; }
+    if (all) {
+      this.map.fitBounds(L.latLngBounds(pts).pad(0.2), { animate: false });
+      this.placeMarkers();
+      return;
+    }
+    // fit the dominant cluster only — one far-flung day must not zoom the whole route out
+    const med = arr => { const s = arr.slice().sort((a, b) => a - b); return s[Math.floor(s.length / 2)]; };
+    const mLat = med(pts.map(p => p[0])), mLng = med(pts.map(p => p[1]));
+    // keep everything within ~1500 km of the cluster centre; only truly distant stops are excluded
+    const km = p => {
+      const dLat = (p[0] - mLat) * 111;
+      const dLng = (p[1] - mLng) * 111 * Math.cos(((p[0] + mLat) / 2) * Math.PI / 180);
+      return Math.sqrt(dLat * dLat + dLng * dLng);
+    };
+    const core = pts.filter(p => km(p) < 1500);
+    this.map.fitBounds(L.latLngBounds(core.length ? core : pts).pad(0.25), { animate: false });
+    this.outliers = pts.length - core.length;
+    this.placeMarkers();
+  }
+
+  static COLS() {
+    return ['id', 'day_number', 'date', 'title', 'destination', 'hotel_name', 'map_url', 'attractions',
+      'distance_km', 'drive_time', 'ferries', 'weather_description', 'sunrise_time', 'sunset_time',
+      'sun_manual', 'experiences', 'challenges', 'people_places', 'culinary', 'accommodation',
+      'lat', 'lng', 'located', 'media', 'updated_by'];
+  }
+
+  syncCfg() {
+    if (this._cfg) return this._cfg;
+    let c = {};
+    try { c = JSON.parse(localStorage.getItem('norway-sync') || '{}'); } catch (e) {}
+    try {
+      const p = new URLSearchParams(location.search);
+      if (p.get('sb')) c = { url: p.get('sb'), key: p.get('key') || '', trip: p.get('trip') || 'norway-2026' };
+    } catch (e) {}
+    c.trip = c.trip || 'norway-2026';
+    this._cfg = c;
+    return c;
+  }
+
+  saveCfg(c) {
+    this._cfg = c;
+    try { localStorage.setItem('norway-sync', JSON.stringify(c)); } catch (e) {}
+  }
+
+  sbHeaders() {
+    const c = this.syncCfg();
+    return { apikey: c.key, Authorization: 'Bearer ' + c.key, 'Content-Type': 'application/json' };
+  }
+
+  pullRemote(announce) {
+    const c = this.syncCfg();
+    if (!c.url || !c.key) return;
+    const base = c.url.replace(/\/+$/, '');
+    fetch(base + '/rest/v1/days?trip_id=eq.' + encodeURIComponent(c.trip) + '&select=*&order=date', { headers: this.sbHeaders() })
+      .then(r => r.ok ? r.json() : Promise.reject(r.status))
+      .then(rows => {
+        if (!Array.isArray(rows)) return;
+        this.setState(st => {
+          const byDate = {};
+          st.days.forEach(d => { byDate[d.date] = d; });
+          rows.forEach(r => {
+            const local = byDate[r.date];
+            const remoteTs = r.updated_at ? new Date(r.updated_at).getTime() : 0;
+            if (!local || remoteTs >= (local.updated_at || 0)) {
+              byDate[r.date] = Object.assign({}, local || {}, r, {
+                updated_at: remoteTs || Date.now(), media: r.media || (local && local.media) || []
+              });
+            }
+          });
+          const days = Object.keys(byDate).map(k => byDate[k]).sort((a, b) => (a.date < b.date ? -1 : 1));
+          return { days, syncState: 'התקבל מהשרת · ' + new Date().toLocaleTimeString('he-IL') };
+        }, () => { this.persist(); if (this.map) this.drawMap(); });
+      })
+      .catch(err => announce && this.setState({ syncState: 'שגיאת קריאה מהשרת (' + err + ')' }));
+  }
+
+  pushRemote(days) {
+    const c = this.syncCfg();
+    if (!c.url || !c.key) return;
+    const base = c.url.replace(/\/+$/, '');
+    const cols = Component.COLS();
+    const rows = days.map(d => {
+      const o = { trip_id: c.trip };
+      cols.forEach(k => { if (d[k] !== undefined) o[k] = d[k]; });
+      o.id = d.id || ('d' + d.date);
+      o.media = d.media || [];
+      return o;
+    });
+    fetch(base + '/rest/v1/days?on_conflict=id', {
+      method: 'POST',
+      headers: Object.assign({ Prefer: 'resolution=merge-duplicates,return=minimal' }, this.sbHeaders()),
+      body: JSON.stringify(rows)
+    })
+      .then(r => this.setState({ syncState: r.ok ? 'הועלה לשרת · ' + new Date().toLocaleTimeString('he-IL') : 'שגיאת כתיבה (' + r.status + ')' }))
+      .catch(e => this.setState({ syncState: 'שגיאת כתיבה' }));
+  }
+
+  startPolling() {
+    if (this.poll) clearInterval(this.poll);
+    const c = this.syncCfg();
+    if (!c.url || !c.key) return;
+    this.pullRemote(true);
+    this.poll = setInterval(() => this.pullRemote(false), 20000);
+  }
+
+  // copy that only reports success when the clipboard write actually resolves
+  copyText(text, key) {
+    if (!text) return;
+    const done = () => {
+      this.setState({ copied: key });
+      setTimeout(() => this.setState(s => (s.copied === key ? { copied: null } : {})), 1800);
+    };
+    const fail = () => this.setState({ copied: null, copyFailed: key });
+    let p = null;
+    try { p = navigator.clipboard && navigator.clipboard.writeText(text); } catch (e) { return fail(); }
+    if (p && p.then) p.then(done).catch(fail);
+    else if (p === undefined) fail();
+    else done();
+  }
+
+  sunFor(d) {
+    if (!d) return { sunrise: '—', sunset: '—', auto: false };
+    if (d.sun_manual && (d.sunrise_time || d.sunset_time)) {
+      return { sunrise: d.sunrise_time || '—', sunset: d.sunset_time || '—', auto: false };
+    }
+    const s = Component.sunTimes(d.date, d.lat, d.lng);
+    if (s) return { sunrise: s.sunrise, sunset: s.sunset, auto: true };
+    return { sunrise: d.sunrise_time || '—', sunset: d.sunset_time || '—', auto: false };
+  }
+
+  fmtDate(iso) {
+    if (!iso) return '';
+    const dt = new Date(iso + 'T00:00:00');
+    if (isNaN(dt)) return iso;
+    return dt.toLocaleDateString('he-IL', { weekday: 'long', day: 'numeric', month: 'long' });
+  }
+  ago(ts) {
+    const m = Math.max(0, Math.round((Date.now() - ts) / 60000));
+    if (m < 1) return 'עכשיו';
+    if (m < 60) return 'לפני ' + m + ' דק׳';
+    const h = Math.round(m / 60);
+    if (h < 24) return 'לפני ' + h + ' שעות';
+    return 'לפני ' + Math.round(h / 24) + ' ימים';
+  }
+
+  go(screen) { return () => this.setState({ screen }); }
+
+  renderVals() {
+    const st = this.state, FIELDS = Component.FIELDS();
+    const days = this.sorted();
+    const cur = this.current() || {};
+    const readonly = st.auth === 'guest';
+
+    const h = {};
+    ['day_number', 'date', 'title', 'distance_km', 'drive_time', 'ferries', 'weather_description', 'sunrise_time', 'sunset_time',
+      'destination', 'hotel_name', 'map_url', 'attractions']
+      .forEach(k => h[k] = e => this.updateField(k, e.target.value));
+    ['sunrise_time', 'sunset_time'].forEach(k => h[k] = e => {
+      const v = e.target.value;
+      this.setState(s => ({
+        days: s.days.map(d => d.id === s.curId ? Object.assign({}, d, { [k]: v, sun_manual: true, updated_at: Date.now() }) : d)
+      }), () => this.persist());
+    });
+    ['lat', 'lng'].forEach(k => h[k] = e => {
+      const v = parseFloat(e.target.value);
+      this.setState(s => ({
+        days: s.days.map(d => d.id === s.curId
+          ? Object.assign({}, d, { [k]: isNaN(v) ? null : v, located: !isNaN(v) && d[k === 'lat' ? 'lng' : 'lat'] !== null })
+          : d)
+      }), () => { this.persist(); this.drawMap(true); });
+    });
+
+    const tabDefs = [
+      { id: 'dash', label: 'לוח המסע' },
+      { id: 'editor', label: 'יומן יומי' },
+      { id: 'import', label: 'ייבוא תכנית' },
+      { id: 'sync', label: 'סנכרון' },
+      { id: 'public', label: 'שיתוף' },
+      { id: 'book', label: 'ספר המסע' }
+    ].filter(t => !(readonly && (t.id === 'editor' || t.id === 'import' || t.id === 'sync')));
+
+    const tabs = tabDefs.map(t => {
+      const on = st.screen === t.id;
+      return {
+        label: t.label, go: this.go(t.id),
+        style: 'border:0; cursor:pointer; font-size:14px; padding:8px 14px; border-radius:9px; font-family:inherit;' +
+          (on ? 'background:#2c5c72; color:#fff;' : 'background:transparent; color:#4b5b66;'),
+        mobileStyle: 'border:0; background:transparent; cursor:pointer; font-size:12.5px; padding:8px 2px; border-radius:10px; font-family:inherit;' +
+          (on ? 'color:#2c5c72; font-weight:700; background:#e7edf0;' : 'color:#6b7a85;')
+      };
+    });
+
+    const daysUI = days.map((d, di) => {
+      const prevD = di > 0 ? days[di - 1] : null;
+      const to = d.destination || d.title || '';
+      const from = prevD ? (prevD.destination || prevD.title || '') : '';
+      const moved = from && to && from.trim() !== to.trim();
+      const dayRoute = (d.map_url || '').trim() || (moved
+        ? 'https://www.google.com/maps/dir/?api=1&origin=' + encodeURIComponent(from)
+          + '&destination=' + encodeURIComponent(to) + '&travelmode=driving'
+        : to ? 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(to) : '');
+      const sections = FIELDS.filter(f => (d[f.key] || '').trim()).map(f => ({ label: f.label, value: d[f.key] }));
+      const media = (d.media || []).map((m, i) => ({ url: m.url, name: m.name }));
+      return Object.assign({}, d, {
+        dateLabel: this.fmtDate(d.date),
+        preview: (d.experiences || d.people_places || 'טרם נכתב — לחצו כדי למלא את היום הזה.').slice(0, 220),
+        hasFerry: !!(d.ferries || '').trim(),
+        ferriesLabel: (d.ferries || '').trim() || 'ללא',
+        hasDistance: !!String(d.distance_km || '').trim() && +d.distance_km > 0,
+        distanceLabel: String(d.distance_km || '').trim() + ' ק״מ',
+        hasDrive: !!String(d.drive_time || '').trim(),
+        hasWeather: !!String(d.weather_description || '').trim(),
+        weather_description: d.weather_description || '',
+        drive_time: d.drive_time || '',
+        sunrise_time: this.sunFor(d).sunrise,
+        sunset_time: this.sunFor(d).sunset,
+        hasMedia: media.length > 0, mediaCount: media.length, media, sections,
+        hasPlan: !!((d.attractions || '').trim() || (d.hotel_name || '').trim() || (d.map_url || '').trim()),
+        planTitle: (d.hotel_name || '').trim() ? 'לינה: ' + d.hotel_name : 'תכנית היום',
+        attractionsLabel: (d.attractions || '').trim(),
+        dayRoute,
+        routeLinkLabel: st.copied === d.id ? 'הקישור הועתק ✓'
+          : st.copyFailed === d.id ? 'מסלול היום — סמנו והעתיקו ידנית'
+          : 'מסלול היום ב‑Google Maps ↗',
+        copyRoute: () => this.copyText(dayRoute, d.id),
+        hotelLabel: (d.hotel_name || '').trim() || '—',
+        open: () => this.setState({ curId: d.id, screen: readonly ? 'public' : 'editor' }, () => this.persist()),
+        cardStyle: 'background:#f7f7f5; border:1px solid ' + (d.id === st.curId ? '#9c6b3c' : '#e2e4e0') +
+          '; border-radius:16px; padding:16px 18px; cursor:pointer; transition:border-color .15s;'
+      });
+    });
+
+    const textFields = FIELDS.map(f => ({
+      label: f.label, hint: f.hint, value: cur[f.key] || '',
+      onChange: e => this.updateField(f.key, e.target.value)
+    }));
+
+    const curMedia = (cur.media || []).map((m, i) => ({
+      url: m.url, name: m.name,
+      remove: () => this.setState(s => ({
+        days: s.days.map(d => d.id === s.curId ? Object.assign({}, d, { media: d.media.filter((_, j) => j !== i) }) : d)
+      }), () => this.persist())
+    }));
+
+    const totalKm = days.reduce((s, d) => s + (parseInt(d.distance_km, 10) || 0), 0);
+    const totalMin = days.reduce((s, d) => {
+      const t = d.drive_time || ''; const hh = (t.match(/(\d+)\s*שע/) || [])[1] || 0;
+      const mm = (t.match(/(\d+)\s*דק/) || [])[1] || 0;
+      return s + (+hh) * 60 + (+mm);
+    }, 0);
+    const last = days.reduce((a, d) => Math.max(a, d.updated_at || 0), 0);
+
+    return {
+      locked: st.auth === 'locked',
+      unlocked: st.auth !== 'locked',
+      isMobile: st.isMobile,
+      isDash: st.screen === 'dash',
+      isEditor: st.screen === 'editor' && !readonly,
+      isPublic: st.screen === 'public',
+      isBook: st.screen === 'book',
+      isImport: st.screen === 'import' && !readonly,
+      importText: st.importText,
+      importStatus: st.importStatus,
+      hasPreview: !!(st.preview && st.preview.length),
+      previewCount: (st.preview || []).length,
+      geoNote: 'הקואורדינטות משוערות לפי שם היעד — אפשר לתקן ידנית לאחר הייבוא',
+      preview: (st.preview || []).map(p => ({
+        day_number: p.day_number, destination: p.destination || '—',
+        dateLabel: this.fmtDate(p.date),
+        summary: [p.hotel_name && 'מלון: ' + p.hotel_name, (p.attractions || '').split('\n').filter(Boolean).join(' · '), p.map_url && 'קישור מפה ✓']
+          .filter(Boolean).join(' | ') || 'ללא פרטים נוספים'
+      })),
+      onImportText: e => this.setState({ importText: e.target.value, importStatus: '' }),
+      onSample: () => this.setState({ importText: Component.SAMPLE(), preview: Component.parsePlan(Component.SAMPLE()), importStatus: '' }),
+      onParse: () => {
+        const rows = Component.parsePlan(st.importText);
+        this.setState({ preview: rows, importStatus: rows.length ? '' : 'לא זוהו שורות עם תאריך תקין' });
+      },
+      onImportMerge: () => this.applyImport(st.preview, 'merge'),
+      onImportReplace: () => this.applyImport(st.preview, 'replace'),
+      tripTitle: this.props.tripTitle || 'נורווגיה 2026',
+      tripMeta: days.length ? this.fmtDate(days[0].date) + ' – ' + this.fmtDate(days[days.length - 1].date) : '',
+      authorsLabel: (st.who ? st.who + ' ו' : '') + 'בן/בת הזוג · יומן משותף',
+      syncLabel: readonly ? 'צפייה בלבד' : (st.savedAt ? 'נשמר · ' + st.who : 'מסונכרן · ' + (st.who || 'אורח')),
+      lastUpdate: this.ago(last),
+      tabs, daysUI, textFields, curMedia, h, cur,
+      dayOptions: days.map(d => ({ id: d.id, label: 'יום ' + d.day_number + ' · ' + d.title })),
+      editedLabel: 'עודכן ' + this.ago(cur.updated_at || Date.now()) + ' · ' + (cur.updated_by || ''),
+      totalKm, dayCount: days.length,
+      mapNote: (() => {
+        const miss = days.filter(d => !d.located).length;
+        return totalKm + ' ק״מ · ' + days.length + ' ימים' + (miss ? ' · ' + miss + ' יעדים ללא מיקום' : '');
+      })(),
+      totalDrive: Math.floor(totalMin / 60) + 'ש׳ ' + (totalMin % 60) + 'ד׳',
+      ferryCount: days.filter(d => (d.ferries || '').trim()).length,
+      who: st.who, pinInput: st.pinInput, pinError: st.pinError,
+      mapRef: this.mapRef,
+      onFitRoute: () => this.drawMap(true, false),
+      onFitAll: () => this.drawMap(true, true),
+      onWho: e => this.setState({ who: e.target.value }),
+      onPin: e => this.setState({ pinInput: e.target.value, pinError: false }),
+      onUnlock: () => {
+        const pin = String(this.props.pinCode || '2610');
+        if (st.pinInput.trim() === pin) this.setState({ auth: 'member', pinError: false }, () => this.persist());
+        else this.setState({ pinError: true });
+      },
+      onGuest: () => this.setState({ auth: 'guest', screen: 'public' }),
+      sunriseVal: this.sunFor(cur).sunrise,
+      sunsetVal: this.sunFor(cur).sunset,
+      sunNote: this.sunFor(cur).auto
+        ? 'מחושב אוטומטית לפי התאריך והמיקום — כתיבה ידנית תדרוס את החישוב'
+        : (cur.located ? 'הוזן ידנית' : 'אין מיקום ליום זה — הזינו קואורדינטות לחישוב אוטומטי'),
+      onRecalcSun: () => this.setState(s => ({
+        days: s.days.map(d => d.id === s.curId ? Object.assign({}, d, { sun_manual: false }) : d)
+      }), () => this.persist()),
+
+      onSelectRoute: e => e.target.select(),
+      shareUrl: (() => {
+        try { return location.origin + location.pathname + '?view=1'; } catch (e) { return '?view=1'; }
+      })(),
+      shareCopyLabel: st.copied === 'share' ? 'הועתק ✓'
+        : st.copyFailed === 'share' ? 'סמנו והעתיקו ידנית' : 'העתקת הקישור',
+      onCopyShare: () => this.copyText(location.origin + location.pathname + '?view=1', 'share'),
+      copyLabel: st.copied === cur.id ? 'הועתק ✓' : st.copyFailed === cur.id ? 'העתיקו ידנית' : 'העתקה',
+      onCopyRoute: () => this.copyText((cur.map_url || '').trim(), cur.id),
+      routeNote: (cur.map_url || '').trim()
+        ? 'הקישור מועתק ללוח — הדביקו בדפדפן או בוואטסאפ'
+        : 'הדביקו כאן את קישור המסלול היומי מ‑Google Maps',
+      locStatus: cur.located && typeof cur.lat === 'number'
+        ? 'מסומן במפה · ' + Number(cur.lat).toFixed(3) + ', ' + Number(cur.lng).toFixed(3)
+        : 'היעד עדיין לא אותר — אין סמן במפה',
+      onRelocate: () => {
+        this.setState(s => ({
+          days: s.days.map(d => d.id === s.curId ? Object.assign({}, d, { located: false }) : d)
+        }), () => { this.looking = false; this.lookupMissing(); });
+      },
+      onSelectDay: e => this.setState({ curId: e.target.value }, () => this.persist()),
+      onAddDay: () => {
+        const n = days.length ? Math.max.apply(null, days.map(d => +d.day_number)) + 1 : 1;
+        const prev = days[days.length - 1] || { lat: 60.4, lng: 6.2, date: '2026-06-14' };
+        const nd = new Date(prev.date + 'T00:00:00'); nd.setDate(nd.getDate() + 1);
+        const day = {
+          id: 'd' + Date.now(), day_number: n, date: nd.toISOString().slice(0, 10), title: 'יום חדש',
+          lat: prev.lat + 0.35, lng: prev.lng + 0.35, distance_km: '', drive_time: '', ferries: '',
+          weather_description: '', sunrise_time: '04:00', sunset_time: '22:30',
+          experiences: '', challenges: '', people_places: '', culinary: '',
+          media: [], updated_at: Date.now(), updated_by: st.who || 'אורח'
+        };
+        this.setState(s => ({ days: s.days.concat([day]), curId: day.id, screen: 'editor' }), () => this.persist());
+      },
+      onDeleteDay: () => this.setState(s => {
+        const rest = s.days.filter(d => d.id !== s.curId);
+        return { days: rest, curId: (rest[0] || {}).id };
+      }, () => this.persist()),
+      onUpload: e => {
+        const files = Array.from(e.target.files || []);
+        files.forEach(file => {
+          const r = new FileReader();
+          r.onload = () => this.setState(s => ({
+            days: s.days.map(d => d.id === s.curId
+              ? Object.assign({}, d, { media: (d.media || []).concat([{ url: r.result, name: file.name, type: file.type }]), updated_at: Date.now() })
+              : d)
+          }), () => this.persist());
+          r.readAsDataURL(file);
+        });
+        e.target.value = '';
+      },
+      onSave: () => {
+        this.persist();
+        this.setState({ savedAt: Date.now() });
+        if (cur) this.pushRemote([cur]);
+      },
+      isSync: st.screen === 'sync' && !readonly,
+      cfg: this.syncCfg(),
+      syncState: st.syncState || (this.syncCfg().url ? 'מחובר · נשלף עדכון כל 20 שניות' : 'לא מחובר לשרת — היומן נשמר במכשיר הזה בלבד'),
+      onCfgUrl: e => { this.saveCfg(Object.assign({}, this.syncCfg(), { url: e.target.value.trim() })); this.forceUpdate(); },
+      onCfgKey: e => { this.saveCfg(Object.assign({}, this.syncCfg(), { key: e.target.value.trim() })); this.forceUpdate(); },
+      onCfgTrip: e => { this.saveCfg(Object.assign({}, this.syncCfg(), { trip: e.target.value.trim() })); this.forceUpdate(); },
+      onConnect: () => { this.saveCfg(this.syncCfg()); this.startPolling(); },
+      onPushAll: () => this.pushRemote(this.state.days),
+      onPullNow: () => this.pullRemote(true),
+      liveUrl: (() => {
+        const c = this.syncCfg();
+        if (!c.url || !c.key) return '';
+        return location.origin + location.pathname + '?view=1&sb=' + encodeURIComponent(c.url)
+          + '&key=' + encodeURIComponent(c.key) + '&trip=' + encodeURIComponent(c.trip);
+      })(),
+      liveCopyLabel: st.copied === 'live' ? 'הועתק ✓' : st.copyFailed === 'live' ? 'סמנו והעתיקו' : 'העתקת הקישור החי',
+      onCopyLive: () => {
+        const c = this.syncCfg();
+        if (!c.url || !c.key) return;
+        this.copyText(location.origin + location.pathname + '?view=1&sb=' + encodeURIComponent(c.url)
+          + '&key=' + encodeURIComponent(c.key) + '&trip=' + encodeURIComponent(c.trip), 'live');
+      },
+      onPrint: () => window.print()
+    };
+  }
+}
+</script>
+</body>
+</html>
